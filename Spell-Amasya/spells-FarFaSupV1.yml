@@ -1,0 +1,835 @@
+############################## FEU
+healfeu:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: "Chaleur rassurante"
+    projectile-velocity: 10
+    projectile-gravity: 0.25
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: healfeu_aoe
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 64
+                color: FF0000
+healfeu_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2.5
+    vertical-radius: 2.5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - heal_Feu
+    effects:
+        eff2:
+            position: special
+            effect: Particles
+            particle-name: flame
+            speed: 0.05
+            count: 100
+            horiz-spread: 1
+            vert-spread: 1
+            visibleRange: 64
+heal_Feu:
+    spell-class: ".targeted.HealSpell"
+    heal-amount: 1
+    target-modifiers:
+        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU power 3
+        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES power 0
+        - inblock 8,9 power 6
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+############################## FEU 2
+healfeu2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: "Chaleur curative"
+    projectile-velocity: 15
+    projectile-gravity: 0.25
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: healfeu_aoe2
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 64
+                color: FF0000
+healfeu_aoe2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 5
+    vertical-radius: 5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - heal_Feu2
+    effects:
+        eff2:
+            position: special
+            effect: Particles
+            particle-name: flame
+            speed: 0.05
+            count: 100
+            horiz-spread: 2
+            vert-spread: 2
+            visibleRange: 64
+heal_Feu2:
+    spell-class: ".targeted.HealSpell"
+    heal-amount: 1
+    target-modifiers:
+        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU power 6
+        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES power 1
+        - inblock 8,9 power 6
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+############################# FEU 2 Fin
+############################## Lightning
+heallight:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: Cicatrisation
+    projectile-velocity: 10
+    projectile-gravity: 0.25
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: heallight_aoe
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 64
+                color: FFFF00
+heallight_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2.5
+    vertical-radius: 2.5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - heal_light
+    effects:
+        eff2:
+            position: special
+            effect: lightning
+heal_light:
+    spell-class: ".targeted.HealSpell"
+    heal-amount: 1
+    target-modifiers:
+        - outside addpower 1
+        - elevationabove 140 power 3
+        - biome OCEAN,RIVER addpower 1
+        - inblock 8,9 power 3
+        - roof 5 power 0
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+############################## Lightning 2
+heallight2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: Cautérisation
+    projectile-velocity: 15
+    projectile-gravity: 0.25
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: heallight_aoe2
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 64
+                color: ffff00
+heallight_aoe2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 5
+    vertical-radius: 5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - heal_light2
+    effects:
+        eff2:
+            position: special
+            effect: lightning
+heal_light2:
+    spell-class: ".targeted.HealSpell"
+    heal-amount: 1
+    target-modifiers:
+        - outside addpower 1
+        - elevationabove 140 power 6
+        - biome OCEAN,RIVER addpower 1
+        - inblock 8,9 power 6
+        - roof 5 power 0
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+############################# Lightning 2 Fin
+############################## water
+healwater:
+    spell-class: ".targeted.AreaEffectSpell"
+    name: Larme
+    horizontal-radius: 7
+    vertical-radius: 7
+    point-blank: false
+    target-players: true
+    target-non-players: true
+    fail-if-no-targets: true
+    spells:
+        - healwater_proj
+    cooldown: 15
+healwater_proj:
+    spell-class: ".targeted.HomingMissileSpell"
+    projectile-velocity: 3
+    projectile-inertia: 10
+    particle-name: flame
+    spell: healwater_multiTar
+    target-players: true
+    effects:
+          Particles:
+               position: caster
+               effect: effectlibentity
+               effectlib:
+                    class: AnimatedBallEffect
+                    iterations: 13
+                    xFactor: 1
+                    yFactor: 1
+                    zFactor: 1
+healwater_toss:
+    spell-class: ".targeted.ForcetossSpell"
+    damage: 0
+    horizontal-force: 1
+    vertical-force: 2
+    obey-los: true
+    target-players: true
+    target-non-players: true
+    check-plugins: true
+    effects:
+          Particles:
+               position: target
+               effect: effectlibentity
+               effectlib:
+                    class: SphereEffect
+                    radius: 1.5
+                    particles: 250
+                    particle: WATER_SPLASH
+healwater_multiTar:
+    spell-class: ".TargetedMultiSpell"
+    check-individual-cooldowns: false
+    require-entity-target: true
+    target-players: true
+    target-non-players: true
+    spells:
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+        - DELAY 3
+        - healwater_toss
+heal_water:
+    spell-class: ".targeted.HealSpell"
+    heal-amount: 1
+    target-modifiers:
+        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU power 1
+        - biome JUNGLE,SWAMPLAND power 2
+        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES power 3
+        - inblock 8,9 power 3
+        - onfire power 0
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+healwaterfreeze:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 2
+    strength: 1
+    duration: 30
+    targeted: true
+    target-players: true
+    target-non-players: true
+    obey-los: true
+    target-modifiers:
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES required
+############################## water 2
+healwater2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: Purification
+    projectile-velocity: 15
+    projectile-gravity: 0.25
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: healwater2_aoe
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 64
+                color: 0000ff
+healwater2_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 5
+    vertical-radius: 5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - heal_water2
+        - healwater2freeze
+    effects:
+        eff2:
+            position: special
+            effect: Particles
+            particle-name: splash
+            speed: 0.05
+            count: 100
+            horiz-spread: 2
+            vert-spread: 2
+            visibleRange: 64
+heal_water2:
+    spell-class: ".targeted.HealSpell"
+    heal-amount: 1
+    target-modifiers:
+        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU power 1
+        - biome JUNGLE,SWAMPLAND power 2
+        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES power 6
+        - inblock 8,9 power 6
+        - onfire power 0
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+healwater2freeze:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 2
+    strength: 2
+    duration: 30
+    targeted: true
+    target-players: true
+    target-non-players: true
+    obey-los: true
+    target-modifiers:
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES required
+############################## water 2 fin
+############################## RegenDruide
+RegenDruide:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: "Graine de vie"
+    projectile-velocity: 10
+    projectile-gravity: 0.25
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: RegenDruide_aoe
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 64
+                color: FF00FF
+RegenDruide_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2.5
+    vertical-radius: 2.5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - RegenDruide_Regen
+    effects:
+        eff2:
+            position: special
+            effect: Particles
+            particle-name: witchMagic
+            speed: 0.05
+            count: 100
+            horiz-spread: 1
+            vert-spread: 1
+            visibleRange: 64
+RegenDruide_Regen:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 10
+    strength: 0
+    duration: 100
+    targeted: true
+    target-players: false
+    target-non-players: true
+    obey-los: true
+    effects:
+        eff2:
+            position: buff
+            effect: Particles
+            particle-name: witchMagic
+            speed: 0.05
+            count: 5
+            horiz-spread: 0.5
+            vert-spread: 1
+            visibleRange: 64
+############################## RegenDruide fin
+############################## RegenDruide 2
+RegenDruide2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: "Fleur de vie"
+    projectile-velocity: 15
+    projectile-gravity: 0.25
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: RegenDruide2_aoe
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 64
+                color: FF00FF
+RegenDruide2_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 5
+    vertical-radius: 5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - RegenDruide2_Regen
+    effects:
+        eff2:
+            position: special
+            effect: Particles
+            particle-name: witchMagic
+            speed: 0.05
+            count: 100
+            horiz-spread: 2
+            vert-spread: 2
+            visibleRange: 64
+RegenDruide2_Regen:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 10
+    strength: 1
+    duration: 100
+    targeted: true
+    target-players: false
+    target-non-players: true
+    obey-los: true
+    effects:
+        eff1:
+            position: buff
+            effect: Particles
+            particle-name: witchMagic
+            effect-interval: 1
+            speed: 0.05
+            count: 5
+            horiz-spread: 0.5
+            vert-spread: 1
+            visibleRange: 64
+        eff2:
+            position: buff
+            effect: Particles
+            particle-name: crit
+            effect-interval: 1
+            speed: 0.05
+            count: 5
+            horiz-spread: 0.5
+            vert-spread: 1
+            visibleRange: 64
+############################## RegenDruide 2 fin
+############################## FaimDruide
+FaimDruide:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: Rassasier
+    projectile-velocity: 10
+    projectile-gravity: 0.25
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: FaimDruide_aoe
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 64
+                color: D2691E
+FaimDruide_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2.5
+    vertical-radius: 2.5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - FaimDruide_Regen
+    effects:
+        eff2:
+            position: special
+            effect: Particles
+            particle-name: angryVillager
+            speed: 0.05
+            count: 100
+            horiz-spread: 1
+            vert-spread: 1
+            visibleRange: 64
+FaimDruide_Regen:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 23
+    strength: 0
+    duration: 100
+    targeted: true
+    target-players: false
+    target-non-players: true
+    obey-los: true
+    effects:
+        eff2:
+            position: buff
+            effect: Particles
+            particle-name: angryVillager
+            speed: 0.05
+            count: 5
+            horiz-spread: 0.5
+            vert-spread: 1
+            visibleRange: 64
+############################## FaimDruide fin
+############################## FaimDruide 2
+FaimDruide2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: Nourriture
+    projectile-velocity: 15
+    projectile-gravity: 0.25
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: FaimDruide2_aoe
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 64
+                color: D2691E
+FaimDruide2_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 5
+    vertical-radius: 5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - FaimDruide2_Regen
+    effects:
+        eff2:
+            position: special
+            effect: Particles
+            particle-name: angryVillager
+            speed: 0.05
+            count: 100
+            horiz-spread: 2
+            vert-spread: 2
+            visibleRange: 64
+FaimDruide2_Regen:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 23
+    strength: 1
+    duration: 100
+    targeted: true
+    target-players: false
+    target-non-players: true
+    obey-los: true
+    effects:
+        eff1:
+            position: buff
+            effect: Particles
+            particle-name: angryVillager
+            effect-interval: 1
+            speed: 0.05
+            count: 5
+            horiz-spread: 0.5
+            vert-spread: 1
+            visibleRange: 64
+        eff2:
+            position: buff
+            effect: Particles
+            particle-name: mobSpellAmbient
+            effect-interval: 1
+            speed: 0.05
+            count: 5
+            horiz-spread: 0.5
+            vert-spread: 1
+            visibleRange: 64
+############################## FaimDruide 2 fin

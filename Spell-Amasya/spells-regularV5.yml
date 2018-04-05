@@ -1,0 +1,1032 @@
+########################
+# Racial Spell         #
+# Last Edit 02/09/17   #
+# Nouveau Systeme      #
+########################
+Dummy_Target_Nothing:
+    spell-class: ".targeted.DummySpell"
+blibdoolpoolp:
+    spell-class: ".targeted.EntombSpell"
+    name: Blibdoolpoolp
+    cast-item: blaze_rod
+    cooldown: 180
+    range: 15
+    can-target: players,nonplayers
+    tomb-block-type: 174
+    tomb-duration: 20
+    cost:
+        - packed_ice 10
+    str-cost: 10 glace compacte
+    str-cast-self: Vous utiliser la puissance de Blibdoolpoolp
+    str-cast-target: "%a utiliser Blibdoolpoolp contre vous!"
+    str-no-target: Pas de cible.
+sunie:
+    spell-class: ".targeted.CombustSpell"
+    name: Sunie
+    description: Enflamme une cible.
+    cast-item: blaze_rod
+    cooldown: 60
+    range: 20
+    obey-los: true
+    fire-ticks: 40
+    fire-tick-damage: 3
+    prevent-immunity: true
+    can-target: players,nonplayers
+    check-plugins: true
+    cost:
+        - 318 2
+    str-cost: 2 silex
+    str-cast-target: "%a vous enflamme avec la force Sunie!"
+    str-no-target: Pas de cible.
+moradin:
+    spell-class: ".instant.FoodSpell"
+    name: Moradin
+    description: Octroi des points de nourritures.
+    cast-item: book
+    can-cast-by-command: false
+    cooldown: 5
+    food: 20
+    saturation: 5
+    cost:
+        - 4 10
+    str-cost: 10 cobblestone
+    str-cast-self: Moradin soulage votre faim.
+    effects:
+        eff:
+            effect: angry
+            position: caster
+vergadain:
+    spell-class: ".instant.ForcepushSpell"
+    name: Vergadain
+    description: Repoussez vos ennemis.
+    cast-item: stick
+    cooldown: 300
+    range: 10
+    pushback-force: 30
+    additional-vertical-force: 15
+    max-vertical-force: 20
+    can-target: players,nonplayers
+    cost:
+        - 288 16
+    str-cost: 16 plumes
+    str-cast-self: Vous utilisez le pouvoir de Vergadain!
+    str-cast-others: "%a utilise le pouvoir de Vergadain."
+    effects:
+        eff:
+            position: caster
+            effect: particles
+            particle-name: fireworksSpark
+            horiz-spread: 1
+            vert-spread: 1
+            speed: 1
+            count: 100
+            y-offset: 0
+#BattleOrderDorn:
+#    spell-class: ".MultiSpell"
+#    cast-item: "397:0"
+#    cooldown: 45
+#    point-blank: true
+#    spells:
+#        - BattleOrderDorn_Absorption_Self
+#        - BattleOrderDorn_Aoe
+#BattleOrderDorn_Aoe:
+#    spell-class: ".targeted.AreaEffectSpell"
+#    horizontal-radius: 32
+#    vertical-radius: 32
+#    point-blank: true
+#    can-target: players
+#    fail-if-no-targets: false
+#    spells:
+#        - BattleOrderDorn_Absorption
+#    effects:
+#        sound:
+#            effect: sound
+#            sound: mob.wolf.howl
+#            pitch: 0
+#            volume: 2
+#            position: special
+#BattleOrderDorn_Absorption:
+#    spell-class: ".targeted.PotionEffectSpell"
+#    type: 22
+#    strength: 0
+#    duration: 300
+#    targeted: true
+#    can-target: players
+#    beneficial: true
+#BattleOrderDorn_Absorption_Self:
+#    spell-class: ".targeted.PotionEffectSpell"
+#    type: 22
+#    strength: 0
+#    duration: 300
+#    targeted: false
+#    can-target: players
+#    beneficial: true
+aurile:
+    spell-class: ".MultiSpell"
+    enabled: false
+    name: Aurile
+    cooldown: 150
+    cast-item: stick
+    check-individual-cooldowns: false
+    cost:
+        - snow_ball 10
+    str-cost: 10 boules de neige
+    str-cast-self: Aurile vous donne son pouvoir!
+    str-cast-others: "%a utilise le pouvoir de Aurile."
+    spells:
+        - aurile_freeze
+        - DELAY 1
+        - aurile_blind
+aurile_freeze:
+    spell-class: ".instant.FreezeSpell"
+    enabled: false
+    horizontal-spread: 15
+    vertical-spread: 5
+    damage: 3
+    slow-amount: 5
+    slow-duration: 120
+    can-target: players,nonplayers
+aurile_blind:
+    spell-class: ".targeted.PotionEffectSpell"
+    enabled: false
+    range: 30
+    type: 15
+    strength: 0
+    duration: 100
+    targeted: true
+    can-target: players
+    obey-los: true
+    str-no-target: Pas de cible.
+schaundakul:
+    spell-class: ".buff.HasteSpell"
+    enabled: false
+    name: Schaundakul
+    cast-item: bone
+    boost-duration: 300
+    effect-strength: 3
+    duration: 10
+    cooldown: 60
+    cost:
+        - 12 16
+    str-cost: 5 blocs de sable
+    str-cast-self: Schaundakul vous donne son pouvoir!
+    str-fade: Votre course se termine.
+invisibility:
+    spell-class: ".MultiSpell"
+    cooldown: 60
+    cast-item: stick
+    check-individual-cooldowns: false
+    cost:
+        - 339 32
+    str-cost: 32 papiers
+    spells:
+        - invisibility_invis
+        - invisibility_commande
+    str-cast-self: Vous devenez invisible!
+invisibility_invis:
+    spell-class: "fr.aidactif.spellsprime.InvisibilityPrimeSpell"
+    cooldown: 60
+    effects:
+        - caster spawn
+        - disabled spawn
+    toggle: true
+    prevent-pickups: true
+    cancel-on-give-damage: true
+    cancel-on-logout: true
+    duration: 15
+    str-cast-self: Vous devenez invisible!
+    str-fade: Vous redevenez visible.
+invisibility_commande:
+    spell-class: ".ExternalCommandSpell"
+    execute-on-console-instead: true
+    command-to-execute:
+        - "invi %a"
+gargauth:
+    spell-class: ".targeted.LevitateSpell"
+    name: Gargauth
+    description: Cause your target to fly through the air.
+    cast-item: feather
+    tick-rate: 5
+    duration: 5
+    cooldown: 120
+    range: 12
+    cancel-on-item-switch: true
+    cancel-on-spell-cast: true
+    can-target: players,nonplayers
+    cost:
+        - feather 8
+    str-cost: 8 plumes
+    str-cast-self: Gargauth touche %t!
+    str-cast-target: "%a utilise Gargauth pour vous controler!"
+    str-no-target: Pas de cible.
+antigargauth:
+    spell-class: ".PassiveSpell"
+    triggers: 
+        - spelltargeted gargauth
+    chance: 100
+    cooldown: 1
+    spells:
+        - Eff_Gargauth
+        - safefallgargauth
+safefallgargauth:
+    spell-class: ".buff.InvulnerabilitySpell"
+    cooldown: 0
+    damage-causes:
+        - fall
+    duration: 30
+Eff_Gargauth:
+    spell-class: ".buff.DummySpell"
+    duration: 5
+    effects:
+        eff:
+            effect: particles
+            particle-name: spell
+            position: buff
+            effect-interval: 1
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+leira:
+    spell-class: ".targeted.SwitchSpell"
+    enabled: false
+    name: Leira
+    description: Switch places with your target.
+    cast-item: stick
+    range: 25
+    cooldown: 150
+    switch-back: 0
+    can-target: players
+    cost:
+        - glass 1
+    str-cost: 1 glass
+    str-cast-self: Leira touche %t.
+    str-cast-target: "%a utilise Leira contre vous."
+    str-no-target: Pas de cible.
+sylvanus:
+    spell-class: ".targeted.HealSpell"
+    name: Sylvanus
+    heal-amount: 10
+    cooldown: 300
+    cast-item: stick
+    cancel-if-full: true
+    effects:
+        eff:
+            effect: particles
+            particle-name: happyvillager
+            position: target
+            horiz-spread: 0.3
+            vert-spread: 1.0
+            count: 25
+    cost:
+        - 295 16
+    str-cost: 16 graines
+    str-no-target: Pas de cible.
+    str-cast-self: Sylvanus lance une vague de vie!
+    str-cast-target: "%a vous soigne en utilisant le pouvoir Sylvanus!"
+    can-target: players,wolf,cat
+    obey-los: true
+    range: 10
+maglubiyet:
+    spell-class: ".MultiSpell"
+    cast-item: blaze_rod
+    cooldown: 300
+    can-target: self
+    cost:
+        - hunger 10
+        - health 10
+    str-cost: 5 coeurs et 5 de faim.
+    str-cast-self: Vous Incarnez La Fureur
+    str-cast-others: "%a Incarne La Fureur"
+    spells:
+        - maglubiyet_Invuln
+        - maglubiyet_Strength
+    effects:
+        sound:
+            effect: sound
+            sound: mob.endermen.scream
+            pitch: 0
+            position: caster
+maglubiyet_Strength:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 5
+    strength: 0
+    duration: 120
+maglubiyet_Invuln:
+    spell-class: ".buff.InvulnerabilitySpell"
+    damage-causes:
+        - block explosion
+        - contact
+        - custom
+        - drowning
+        - entity attack
+        - entity explosion
+        - fall
+        - fire
+        - fire tick
+        - lava
+        - lightning
+        - magic
+        - poison
+        - projectile
+        - starvation
+        - suffocation
+        - wither
+        - suicide
+        - thorns
+        - falling block
+    duration: 5
+    str-fade: Vous Redevenez Normal
+    effects:
+        eff:
+            position: orbit
+            orbit-radius: 0
+            orbit-seconds-per-revolution: 2
+            orbit-tick-interval: 1
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: SPELL_MOB
+                yOffset: 1
+                iterations: 1
+                period: 1
+                particles: 2
+                visibleRange: 32
+                color: 990000
+yondalla:
+    spell-class: ".instant.PrayerSpell"
+    cast-time: 100
+    cooldown: 300
+    cast-item: stick
+    interrupt-on-move: false
+    interrupt-on-teleport: false
+    interrupt-on-cast: true
+    name: Yondalla
+    amount-healed: 14
+    cost:
+        - 152 1
+    str-cost: 1 redstone block
+    str-cast-self: Yondalla vous impreigne de sa puissance.
+    str-at-full-health: Vous avez toute votre vie.
+    effects:
+        - caster potion FF0000 40
+EnvolFaeSupp:
+    spell-class: ".buff.WindwalkSpell"
+    name: Envol des Faeries Supports
+    cast-item: feather
+    fly-speed: 0.1
+    launch-speed: 1
+    cooldown: 50
+    cancel-on-land: true
+    cancel-on-logout: true
+    cancel-on-teleport: true
+    cancel-on-give-damage: false
+    cancel-on-take-damage: false
+    duration: 10
+    cost:
+        - hunger 5
+    use-cost-interval: 5
+    str-cost: 2.5 de faim
+    str-cast-self: Vous volez!
+    str-fade: Vous ne volez plus.
+    effects:
+        eff:
+            effect: particles
+            particle-name: mobSpell
+            position: orbit
+            orbit-tick-interval: 1
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            orbit-radius: 0
+            count: 10
+    modifiers:
+        - inblock 8,9 denied
+EnvolFarfaSupp:
+    spell-class: ".buff.WindwalkSpell"
+    name: Envol des Farfadets Supports
+    cast-item: feather
+    fly-speed: 0.1
+    launch-speed: 1
+    cooldown: 50
+    cancel-on-land: true
+    cancel-on-logout: true
+    cancel-on-teleport: true
+    cancel-on-give-damage: false
+    cancel-on-take-damage: false
+    duration: 13
+    cost:
+        - hunger 4
+    str-cost: 2 de faim
+    str-cast-self: Vous volez!
+    str-fade: Vous ne volez plus.
+    effects:
+        eff:
+            effect: particles
+            particle-name: mobSpell
+            position: orbit
+            orbit-tick-interval: 1
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            orbit-radius: 0
+            count: 10
+    modifiers:
+        - inblock 8,9 denied
+EnvolFaeAssa:
+    spell-class: ".buff.WindwalkSpell"
+    name: Envol des Faeries Assassins
+    cast-item: feather
+    fly-speed: 0.2
+    launch-speed: 2
+    cooldown: 40
+    cancel-on-land: true
+    cancel-on-logout: true
+    cancel-on-teleport: true
+    cancel-on-give-damage: false
+    cancel-on-take-damage: false
+    duration: 5
+    cost:
+        - hunger 5
+    use-cost-interval: 5
+    str-cost: 2.5 de faim
+    str-cast-self: Vous volez!
+    str-fade: Vous ne volez plus.
+    effects:
+        eff:
+            effect: particles
+            particle-name: mobSpell
+            position: orbit
+            orbit-tick-interval: 1
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            orbit-radius: 0
+            count: 10
+    modifiers:
+        - inblock 8,9 denied
+EnvolFarfaAssa:
+    spell-class: ".buff.WindwalkSpell"
+    name: Envol des Farfadets Assassins
+    cast-item: feather
+    fly-speed: 0.2
+    launch-speed: 2
+    cooldown: 40
+    cancel-on-land: true
+    cancel-on-logout: true
+    cancel-on-teleport: true
+    cancel-on-give-damage: false
+    cancel-on-take-damage: false
+    duration: 8
+    cost:
+        - hunger 4
+    str-cost: 2 de faim
+    str-cast-self: Vous volez!
+    str-fade: Vous ne volez plus.
+    effects:
+        eff:
+            effect: particles
+            particle-name: mobSpell
+            position: orbit
+            orbit-tick-interval: 1
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            orbit-radius: 0
+            count: 10
+    modifiers:
+        - inblock 8,9 denied
+Colere_dmg:
+    spell-class: ".targeted.PainSpell"
+    damage: 2
+    spell-damage-type: arcane
+    ignore-armor: true
+    can-target: players,nonplayers
+    check-plugins: true
+colere_Fae:
+    spell-class: ".MultiSpell"
+    name: Colere des Faeries
+    cooldown: 40
+    cast-item: "351:12"
+    check-individual-cooldowns: false
+    cost:
+        - hunger 10
+    str-cost: 5 de faim
+    str-no-target: Pas de cible.
+    str-cast-self: Vous liberez votre colère!
+    str-cast-others: "%a dechaine sa colère!"
+    spells:
+        - DELAY 1
+        - Colere_Fae_Projectile
+        - DELAY 10
+        - Colere_Fae_Projectile
+        - DELAY 10
+        - Colere_Fae_Projectile
+        - DELAY 10
+        - Colere_Fae_Projectile
+Colere_Fae_Projectile:
+    spell-class: ".targeted.HomingMissileSpell"
+    str-no-target: Pas de cible.
+    can-target: players,nonplayers
+    projectile-velocity: 10
+    projectile-inertia: 3
+    max-duration: 5
+    hit-radius: 0.5
+    range: 40
+    spell: Colere_dmg
+    effects:
+        eff1:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 32
+                color: 000000
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 32
+                color: FFFFFF
+colere_Det:
+    spell-class: ".MultiSpell"
+    name: Colere des Farfadets
+    cooldown: 35
+    cast-item: "351:12"
+    check-individual-cooldowns: false
+    cost:
+        - hunger 12
+    str-cost: 5 de faim
+    str-no-target: Pas de cible.
+    str-cast-self: Vous liberez votre colère!
+    str-cast-others: "%a dechaine sa colère!"
+    spells:
+        - DELAY 1
+        - Colere_Det_Projectile
+        - DELAY 10
+        - Colere_Det_Projectile
+        - DELAY 10
+        - Colere_Det_Projectile
+        - DELAY 10
+        - Colere_Det_Projectile
+        - DELAY 10
+        - Colere_Det_Projectile
+        - DELAY 10
+        - Colere_Det_Projectile
+Colere_Det_Projectile:
+    spell-class: ".targeted.HomingMissileSpell"
+    str-no-target: Pas de cible.
+    can-target: players,nonplayers
+    projectile-velocity: 15
+    projectile-inertia: 2
+    max-duration: 10
+    hit-radius: 1
+    range: 40
+    target-modifiers:
+        - distancelessthan 5 denied
+    spell: Colere_dmg
+    effects:
+        eff1:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 32
+                color: 000000
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 6
+                period: 1
+                visibleRange: 32
+                color: FFFFFF
+Explosion:
+    spell-class: ".MultiSpell"
+    name: Explosion De Magie
+    cast-item: "351:6"
+    check-individual-cooldowns: false
+    cooldown: 60
+    cost:
+        - hunger 12
+    str-cost: 5 de faim
+    str-cast-self: Vous liberez votre rage!
+    str-cast-others: "%a dechaine sa rage!"
+    spells:
+        - Explosion_Multi
+Explosion_Multi:
+    spell-class: ".TargetedMultiSpell"
+    check-individual-cooldowns: false
+    require-entity-target: true
+    stop-on-fail: false
+    can-target: players,nonplayers
+    range: 12
+    spells:
+        - Explosion_DMG_1
+        - Explosion_EFF_1
+        - Explosion_AOE_2
+        - Explosion_AOE_3
+Explosion_EFF_1:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 1
+    vertical-radius: 1
+    point-blank: false
+    fail-if-no-targets: false
+    spell-source-in-center: true
+    spells:
+        - Dummy_Target_Nothing
+    effects:
+        eff2:
+            position: special
+            effect: particles
+            particle-name: fireworksSpark
+            horiz-spread: 0.1
+            vert-spread: 0.1
+            count: 25
+Explosion_AOE_2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2
+    vertical-radius: 2
+    point-blank: false
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spell-source-in-center: true
+    spells:
+        - Explosion_dmg_2
+    effects:
+        eff2:
+            position: special
+            effect: particles
+            particle-name: explode
+            horiz-spread: 0.5
+            vert-spread: 0.5
+            count: 25
+Explosion_AOE_3:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 4
+    vertical-radius: 4
+    point-blank: false
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spell-source-in-center: true
+    spells:
+        - Explosion_dmg_3
+    effects:
+        eff2:
+            position: special
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 1.5
+            vert-spread: 1.5
+            count: 50
+Explosion_dmg_1:
+    spell-class: ".targeted.PainSpell"
+    damage: 5
+    spell-damage-type: arcane
+    ignore-armor: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff:
+            position: target
+            effect: particles
+            particle-name: largeexplode
+            horiz-spread: 0.2
+            vert-spread: 0.2
+            count: 5
+Explosion_dmg_2:
+    spell-class: ".targeted.PainSpell"
+    damage: 3
+    spell-damage-type: arcane
+    ignore-armor: true
+    can-target: players,nonplayers
+    check-plugins: true
+Explosion_dmg_3:
+    spell-class: ".targeted.PainSpell"
+    damage: 2
+    spell-damage-type: arcane
+    ignore-armor: true
+    can-target: players,nonplayers
+    check-plugins: true
+FrappeFaeSupp:
+    spell-class: ".targeted.PainSpell"
+    name: Frappe des Faeries Supports
+    cast-item: paper
+    cooldown: 1
+    damage: 2
+    range: 8
+    spell-damage-type: arcane
+    always-activate: true
+    ignore-armor: true
+    can-target: players,nonplayers
+    check-plugins: true
+    cost:
+        - hunger 1
+    str-cost: 0.5 de faim
+    str-no-target: Pas de cible.
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: witchMagic
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+FrappeDetSupp:
+    spell-class: ".targeted.PainSpell"
+    name: Frappe des Farfadet Supports
+    cast-item: paper
+    cooldown: 1
+    damage: 2
+    range: 12
+    spell-damage-type: arcane
+    always-activate: true
+    ignore-armor: true
+    can-target: players,nonplayers
+    check-plugins: true
+    cost:
+        - hunger 1
+    str-cost: 0.5 de faim
+    str-no-target: Pas de cible.
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: witchMagic
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+        eff_2:
+            position: target
+            effect: particles
+            particle-name: instantSpell
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+FrappeFaeAss:
+    spell-class: ".targeted.PainSpell"
+    name: Frappe des Faeries Assassins
+    cast-item: paper
+    cooldown: 1
+    damage: 2
+    range: 15
+    spell-damage-type: arcane
+    always-activate: true
+    ignore-armor: true
+    can-target: players,nonplayers
+    check-plugins: true
+    cost:
+        - hunger 1
+    str-cost: 0.5 de faim
+    str-no-target: Pas de cible.
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: witchMagic
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+FrappeDetAss:
+    spell-class: ".targeted.PainSpell"
+    name: Frappe des Farfadets Assassins
+    cast-item: paper
+    cooldown: 1
+    damage: 2
+    range: 18
+    spell-damage-type: arcane
+    always-activate: true
+    ignore-armor: true
+    can-target: players,nonplayers
+    check-plugins: true
+    cost:
+        - hunger 1
+    str-cost: 0.5 de faim
+    str-no-target: Pas de cible.
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: witchMagic
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+        eff_2:
+            position: target
+            effect: particles
+            particle-name: instantSpell
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+rajeunissement_Fae:
+    spell-class: ".MultiSpell"
+    name: Rajeunissement Des Faeries
+    cooldown: 60
+    cast-item: "351:11"
+    check-individual-cooldowns: false
+    cost:
+        - hunger 10
+    str-cost: 5 de faim
+    str-cast-self: Vous lancez le rajeunissement!
+    str-cast-others: "%a libere une puissante wdw de soin!"
+    spells:
+        - DELAY 1
+        - rajeunissement_Fae_Heal
+        - DELAY 10
+        - rajeunissement_Fae_Heal
+        - DELAY 10
+        - rajeunissement_Fae_Heal
+        - DELAY 15
+        - rajeunissement_Fae_Heal
+        - DELAY 10
+        - rajeunissement_Fae_Heal
+        - DELAY 10
+        - rajeunissement_Fae_Heal
+rajeunissement_Fae_Heal:
+    spell-class: ".targeted.HealSpell"
+    heal-amount: 1
+    range: 6
+    cancel-if-full: false
+    always-activate: true
+    str-no-target: Pas de cible.
+    effects:
+        eff1:
+            position: line
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                yOffset: 1
+                particles: 8
+                period: 1
+                visibleRange: 32
+                color: d8ff00
+    can-target: players
+    check-plugins: true
+    obey-los: true
+rajeunissement_Det:
+    spell-class: ".MultiSpell"
+    name: Rajeunissement Des Farfadets
+    cooldown: 45
+    cast-item: "351:11"
+    check-individual-cooldowns: false
+    cost:
+        - hunger 8
+    str-cost: 5 de faim
+    str-cast-self: Vous lancez le rajeunissement!
+    str-cast-others: "%a libere une puissante vague de soin!"
+    spells:
+        - DELAY 1
+        - rajeunissement_Det_Heal
+        - DELAY 9
+        - rajeunissement_Det_Heal
+        - DELAY 9
+        - rajeunissement_Det_Heal
+        - DELAY 9
+        - rajeunissement_Det_Heal
+        - DELAY 9
+        - rajeunissement_Det_Heal
+        - DELAY 9
+        - rajeunissement_Det_Heal
+        - DELAY 9
+        - rajeunissement_Det_Heal
+        - DELAY 9
+        - rajeunissement_Det_Heal
+rajeunissement_Det_Heal:
+    spell-class: ".targeted.HealSpell"
+    heal-amount: 2
+    range: 9
+    cancel-if-full: false
+    always-activate: true
+    str-no-target: Pas de cible.
+    effects:
+        eff1:
+            position: line
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                yOffset: 1
+                particles: 8
+                period: 1
+                visibleRange: 32
+                color: d8ff00
+        eff2:
+            position: line
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                yOffset: 1
+                particles: 8
+                period: 1
+                visibleRange: 32
+                color: 23ff00
+    can-target: players
+    check-plugins: true
+    obey-los: true
+Courage:
+    spell-class: ".MultiSpell"
+    name: Courage
+    cast-item: "351:1"
+    check-individual-cooldowns: false
+    require-entity-target: false
+    stop-on-fail: false
+    point-blank: true
+    check-individual-modifiers: true
+    cooldown: 120
+    can-target: self
+    cost:
+        - hunger 10
+    str-cost: 5 de faim
+    str-no-target: Pas de cible.
+    str-cast-self: Vous libèrez une puissante vague de magie!
+    str-cast-others: "%a libère une puissante vague de magie!"
+    spells:
+        - Courage_Speed_Self
+        - Courage_AOE
+Courage_AOE:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 20
+    vertical-radius: 2
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spell-source-in-center: true
+    spells:
+        - Courage_Speed_AOE
+    effects:
+        Effect_1:
+            position: special
+            effect: particles
+            particle-name: witchMagic
+            horiz-spread: 20
+            vert-spread: 1
+            speed: 0.1
+            count: 300
+            y-offset: 0
+        Effect_2:
+            position: special
+            effect: particles
+            particle-name: instantSpell
+            horiz-spread: 20
+            vert-spread: 1
+            speed: 0.1
+            count: 300
+            y-offset: 0
+        Effect_3:
+            position: special
+            effect: particles
+            particle-name: mobSpell
+            horiz-spread: 20
+            vert-spread: 1
+            speed: 0.1
+            count: 300`
+            y-offset: 1
+Courage_Speed_AOE:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 1
+    strength: 0
+    duration: 300
+    targeted: true
+    beneficial: true
+    check-plugins: true
+Courage_Speed_Self:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 1
+    strength: 0
+    duration: 300
+    beneficial: true
+#EndRacial

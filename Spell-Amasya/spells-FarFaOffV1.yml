@@ -1,0 +1,1417 @@
+############################## FEU
+testfeu:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: "Trait de feu"
+    projectile-velocity: 15
+    projectile-gravity: 0
+    tick-interval: 1
+    spell-interval: 1
+    special-effect-interval: 1
+    hit-non-players: false
+    hit-players: false
+    hit-air-during: true
+    hit-radius: 0.5
+    max-distance: 10
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-speed: 0
+    particle-name: flame
+    spell: testfeu_aoe
+    effects:
+        eff2:
+            position: special
+            effect: Particles
+            particle-name: flame
+            horiz-spread: 0.05
+            vert-spread: 0.05
+            speed: 0
+            count: 20
+        eff3:
+            position: special
+            effect: Particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.2
+            speed: 0
+            count: 3
+        eff4:
+            position: special
+            effect: Particles
+            particle-name: flame
+            horiz-spread: 0.2
+            vert-spread: 0.5
+            speed: 0
+            count: 3
+testfeu_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 1.25
+    vertical-radius: 1.25
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - testfeu_feu
+testfeu_feu:
+    spell-class: ".targeted.CombustSpell"
+    obey-los: true
+    fire-ticks: 20
+    fire-tick-damage: 1
+    prevent-immunity: false
+    can-target: players,nonplayers
+    check-plugins: true
+    modifiers:
+        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU addpower 3
+        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES power 0.75
+        - inblock 8,9 power 0.75
+        - onfire addpower 3
+        - storm power 0.85
+############################## FEU 2
+testfeu2:
+    spell-class: ".MultiSpell"
+    name: Météore
+    spells:
+        - testfeu2_SPHERES_1
+        - testfeu2_SPHERES_2
+        - testfeu2_SPHERES_3
+testfeu2_SPHERES_1:
+    spell-class: ".targeted.OrbitSpell"
+    horiz-expand-delay: 2
+    horiz-expand-radius: 0.025
+    vert-expand-delay: 2
+    vert-expand-radius: 0
+    start-horiz-offset: 0
+    hit-radius: 1.25
+    vertical-hit-radius: 1.25
+    seconds-per-revolution: 3
+    particle-name: take
+    orbit-radius: 2
+    tick-interval: 1
+    max-duration: 45
+    y-offset: 1
+    target-self: true
+    can-hit:
+        - nonplayers
+        - players
+    spell: testfeu2_FORCEBOMB
+    #spell-on-hit-ground: testfeu2_GROUND
+    spell-on-hit-entity: testfeu2_DMG_SPHERES
+    stop-on-hit-entity: true
+    stop-on-hit-ground: false
+    effects:
+        eff1:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: 000000
+                iterations: 1
+                radius: 0.25
+                particles: 15
+                speed: 0
+                period: 0
+                visibleRange: 100
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: RED
+                iterations: 1
+                radius: 0.5
+                particles: 15
+                period: 0
+                visibleRange: 100
+
+testfeu2_SPHERES_2:
+    spell-class: ".targeted.OrbitSpell"
+    horiz-expand-delay: 2
+    horiz-expand-radius: 0.025
+    vert-expand-delay: 2
+    vert-expand-radius: 0
+    start-horiz-offset: 120
+    hit-radius: 1.25
+    vertical-hit-radius: 1.25
+    seconds-per-revolution: 3
+    particle-name: take
+    orbit-radius: 2
+    tick-interval: 1
+    max-duration: 45
+    y-offset: 1
+    target-self: true
+    can-hit:
+        - nonplayers
+        - players
+    spell: testfeu2_FORCEBOMB
+    #spell-on-hit-ground: testfeu2_GROUND
+    spell-on-hit-entity: testfeu2_DMG_SPHERES
+    stop-on-hit-entity: true
+    stop-on-hit-ground: false
+    effects:
+        eff1:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: 000000
+                iterations: 1
+                radius: 0.25
+                particles: 15
+                period: 0
+                visibleRange: 100
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: RED
+                iterations: 1
+                radius: 0.5
+                particles: 15
+                period: 0
+                visibleRange: 100
+
+testfeu2_SPHERES_3:
+    spell-class: ".targeted.OrbitSpell"
+    horiz-expand-delay: 2
+    horiz-expand-radius: 0.025
+    vert-expand-delay: 2
+    vert-expand-radius: 0
+    start-horiz-offset: 240
+    hit-radius: 1.25
+    vertical-hit-radius: 1.25
+    seconds-per-revolution: 3
+    particle-name: take
+    orbit-radius: 2
+    tick-interval: 1
+    max-duration: 45
+    y-offset: 1
+    target-self: true
+    can-hit:
+        - nonplayers
+        - players
+    spell: testfeu2_FORCEBOMB
+    #spell-on-hit-ground: testfeu2_GROUND
+    spell-on-hit-entity: testfeu2_DMG_SPHERES
+    stop-on-hit-entity: true
+    stop-on-hit-ground: false
+    effects:
+        eff1:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: 000000
+                iterations: 1
+                radius: 0.25
+                particles: 15
+                period: 0
+                visibleRange: 100
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: RED
+                iterations: 1
+                radius: 0.5
+                particles: 15
+                period: 0
+                visibleRange: 100
+
+testfeu2_FORCEBOMB:
+    spell-class: ".targeted.ForcebombSpell"
+    radius: 4
+    pushback-force: -5
+    additional-vertical-force: 2
+    max-vertical-force: 2
+    target-players: true
+    dont-target-caster: true
+testfeu2_GROUND:
+    spell-class: ".targeted.ExplodeSpell"
+    enabled: false
+    explosion-size: 8
+    prevent-block-damage: true
+    prevent-player-damage: false
+    damage-multiplier: 10
+    add-fire: false
+    simulate-tnt: true
+    ignore-canceled: false
+testfeu2_DMG_SPHERES:
+    spell-class: ".targeted.CombustSpell"
+    obey-los: true
+    fire-ticks: 20
+    fire-tick-damage: 1
+    prevent-immunity: false
+    can-target: players,nonplayers
+    check-plugins: true
+    modifiers:
+        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU addpower 3
+        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES power 0.90
+        - inblock 8,9 power 0.90
+        - onfire addpower 3
+        - storm power 0.90
+############################# FEU 2 Fin
+############################## Lightning
+testlight:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: Eclair
+    projectile-velocity: 20
+    projectile-gravity: 0
+    tick-interval: 1
+    special-effect-interval: 20
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 0.5
+    max-distance: 64
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: testlight_aoe
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0
+                particles: 12
+                period: 1
+                visibleRange: 64
+                color: FFFF00
+        eff3:
+            position: special
+            effect: blockbreak
+            id: 147
+testlight_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 5
+    vertical-radius: 5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - pain_light
+    effects:
+        eff2:
+            position: special
+            effect: lightning
+pain_light:
+    spell-class: ".targeted.PainSpell"
+    damage: 1
+    modifiers:
+        - outside addpower 1
+        - elevationabove 140 addpower 3
+        - biome OCEAN,RIVER addpower 1
+        - inblock 8,9 addpower 3
+        - roof 5 power 0
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+    effects:
+        eff3:
+            position: target
+            effect: lightning
+############################## Lightning 2
+testlight2:
+    spell-class: ".targeted.ChainSpell"
+    name: Fatal-Foudre
+    spell: pain_light2
+    bounces: 5
+    bounce-range: 5
+    interval: 1
+    beneficial: false
+    target-players: true
+    target-non-players: true
+    effects:
+        eff2:
+            position: line
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0
+                particles: 12
+                period: 1
+                visibleRange: 64
+                color: ffff00
+        eff3:
+            position: caster
+            effect: lightning
+        eff4:
+            position: line
+            effect: blockbreak
+            id: 147
+pain_light2:
+    spell-class: ".targeted.PainSpell"
+    damage: 2
+    modifiers:
+        - outside addpower 1
+        - elevationabove 140 addpower 6
+        - biome OCEAN,RIVER addpower 1
+        - inblock 8,9 addpower 6
+        - roof 5 power 0.5
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+    effects:
+        eff2:
+            position: target
+            effect: lightning
+############################# Lightning 2 Fin
+############################## water
+testwater:
+    spell-class: ".MultiSpell"
+    name: Goutte
+    spells:
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+        - DELAY 3
+        - testwater_AoE
+    effects:
+        Particles:
+            position: caster
+            effect: effectlibentity
+            effectlib:
+                class: AnimatedBallEffect
+                particle: WATER_SPLASH
+                iterations: 76
+                xFactor: 3
+                yFactor: 0
+                zFactor: 3
+        Particles2:
+            position: caster
+            effect: effectlibentity
+            effectlib:
+                class: AnimatedBallEffect
+                particle: REDSTONE
+                color: 001fff
+                iterations: 76
+                xFactor: 3
+                yFactor: 0
+                zFactor: 3
+        Sound:
+            position: caster
+            effect: sound
+            sound: mob.wither.shoot
+            pitch: 0
+            volume: 1
+
+testwater_AoE:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3
+    vertical-radius: 1.5
+    spells:
+        - testwater_dmg
+        - testwater_freeze
+testwater_dmg:
+    spell-class: ".targeted.DotSpell"
+    delay: 5
+    interval: 5
+    duration: 5
+    damage: 1
+    prevent-knockback: false
+    effects:
+        Particles:
+            effect: particles
+            position: target
+            particle-name: blockcrack_9
+            count: 30
+            speed: 0.2
+            height-offset: 1
+    modifiers:
+        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU power 0.75
+        - biome JUNGLE,SWAMPLAND addpower 2
+        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES addpower 1
+        - inblock 8,9 addpower 1
+        - onfire power 0.75
+testwater_freeze:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 2
+    strength: 2
+    duration: 300
+    targeted: true
+    target-players: true
+    target-non-players: true
+    obey-los: true
+    modifiers:
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES required
+############################## water 2
+testwater2:
+     spell-class: ".MultiSpell"
+     name: Vague
+     spells:
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+          - DELAY 1
+          - testwater2_Proj1
+          - testwater2_Proj2
+          - testwater2_Proj3
+testwater2_Proj1:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-spread: 0.40
+    start-forward-offset: -0.5
+    projectile-horiz-offset: 0
+    projectile-vert-offset: -0.1
+    start-y-offset: 1.50
+    projectile-gravity: 0
+    tick-interval: 1
+    spell-interval: 1
+    special-effect-interval: 1
+    hit-non-players: true
+    hit-players: true
+    stop-on-hit-entity: false
+    hit-radius: 2
+    max-distance: 6
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-speed: 0
+    particle-name: splash
+    spell: testwater2_AoE
+    effects:
+        eff1:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: 001fff
+                iterations: 1
+                radius: 0.25
+                particles: 15
+                speed: 0
+                period: 0
+                visibleRange: 100
+testwater2_Proj2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-spread: 0.40
+    start-forward-offset: -0.5
+    projectile-horiz-offset: 10
+    projectile-vert-offset: -0.1
+    start-y-offset: 1.50
+    projectile-gravity: 0
+    tick-interval: 1
+    spell-interval: 1
+    special-effect-interval: 1
+    hit-non-players: true
+    hit-players: true
+    stop-on-hit-entity: false
+    hit-radius: 2
+    max-distance: 6
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-speed: 0
+    particle-name: splash
+    spell: testwater2_AoE
+    effects:
+        eff1:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: 00f0ff
+                iterations: 1
+                radius: 0.25
+                particles: 15
+                speed: 0
+                period: 0
+                visibleRange: 100
+testwater2_Proj3:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-spread: 0.40
+    start-forward-offset: -0.5
+    projectile-horiz-offset: -10
+    projectile-vert-offset: -0.1
+    start-y-offset: 1.50
+    projectile-gravity: 0
+    tick-interval: 1
+    spell-interval: 1
+    special-effect-interval: 1
+    hit-non-players: true
+    hit-players: true
+    stop-on-hit-entity: false
+    hit-radius: 2
+    max-distance: 6
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-speed: 0
+    particle-name: splash
+    spell: testwater2_AoE
+    effects:
+        eff1:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: 6100ff
+                iterations: 1
+                radius: 0.25
+                particles: 15
+                speed: 0
+                period: 0
+                visibleRange: 100
+testwater2_AoE:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3
+    vertical-radius: 1
+    fail-if-no-targets: false
+    spells:
+        - testwater2_dmg
+        - testwater2_silence
+        - testwater2_blind
+        - testwater2_freeze
+testwater2_dmg:
+    spell-class: ".targeted.DotSpell"
+    delay: 1
+    interval: 1
+    duration: 1
+    damage: 1
+    prevent-knockback: false
+    effects:
+        Particles:
+            effect: particles
+            position: target
+            particle-name: blockcrack_9
+            count: 30
+            speed: 0.2
+            height-offset: 1
+    modifiers:
+        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU power 0.75
+        - biome JUNGLE,SWAMPLAND addpower 1
+        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES addpower 1
+        - inblock 8,9 addpower 1
+        - onfire power 0.75
+        - day addpower 1
+        - night addpower 1
+testwater2_freeze:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 2
+    strength: 2
+    duration: 300
+    targeted: true
+    target-players: true
+    target-non-players: true
+    obey-los: true
+    modifiers:
+        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU denied
+testwater2_blind:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 15
+    strength: 0
+    duration: 200
+    targeted: true
+    target-players: true
+    target-non-players: true
+    obey-los: true
+testwater2_silence:
+        spell-class: ".targeted.SilenceSpell"
+        prevent-cast: true
+        prevent-chat: false
+        prevent-commands: false
+        duration: 200
+############################## water 2 fin
+############################## terre
+terre:
+    spell-class: .instant.ParticleProjectileSpell
+    name: "Jet de pierres"
+    hug-surface: false
+    projectile-gravity: 0
+    height-from-surface: 0.5
+    special-effect-interval: 1
+    spell-interval: 1
+    hit-air-during: true
+    particle-name: blockcrack
+    particle-count: 20
+    spell: terre_block
+    effects:
+        eff4:
+            position: special
+            effect: blockbreak
+            id: stonebrick
+terre_block:
+    spell-class: .instant.ThrowBlockSpell
+    block-type: stonebrick
+    velocity: 0
+    remove-blocks: true
+    prevent-blocks: false
+    spell-on-land: terre_aoe
+terre_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2.5
+    vertical-radius: 2.5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - pain_terre
+pain_terre:
+    spell-class: ".targeted.PainSpell"
+    damage: 1
+    modifiers:
+        - inblock 8,9 power 0
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+############################## terre 2
+terre2:
+    spell-class: ".instant.ThrowBlockSpell"
+    name: Erruption
+    block-type: stonebrick
+    velocity: 3
+    vertical-adjustment: 0
+    rotation-offset: 0
+    fall-damage: 0
+    fall-damage-max: 0
+    drop-item: false
+    prevent-blocks: true
+    call-target-event: false
+    check-plugins: true
+    spell-on-land: terre2_aoe
+terre2_aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 5
+    vertical-radius: 5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - pain_terre2
+        - terre2terra1
+        - terre2terra2
+        - terre2terra3
+        - terre2terra4
+        - terre2terra5
+        - terre2terra6
+        - terre2terra7
+        - terre2terra8
+        - terre2terra9
+        - terre2terra1
+        - terre2terra6
+        - terre2terra4
+        - terre2terra1
+        - terre2terra2
+terre2terra1:
+    spell-class: ".instant.ThrowBlockSpell"
+    block-type: stonebrick
+    velocity: 0.7
+    vertical-adjustment: 5
+    rotation-offset: 0
+    fall-damage: 4
+    fall-damage-max: 6
+    drop-item: false
+    remove-blocks: true
+    call-target-event: false
+    check-plugins: true
+terre2terra2:
+    spell-class: ".instant.ThrowBlockSpell"
+    block-type: stonebrick
+    velocity: 0.8
+    vertical-adjustment: 6
+    rotation-offset: 45
+    fall-damage: 4
+    fall-damage-max: 6
+    drop-item: false
+    remove-blocks: true
+    call-target-event: false
+    check-plugins: true
+terre2terra3:
+    spell-class: ".instant.ThrowBlockSpell"
+    block-type: stonebrick
+    velocity: 0.9
+    vertical-adjustment: 7
+    rotation-offset: 90
+    fall-damage: 4
+    fall-damage-max: 6
+    drop-item: false
+    remove-blocks: true
+    call-target-event: false
+    check-plugins: true
+terre2terra4:
+    spell-class: ".instant.ThrowBlockSpell"
+    block-type: stonebrick
+    velocity: 1
+    vertical-adjustment: 8
+    rotation-offset: 135
+    fall-damage: 4
+    fall-damage-max: 6
+    drop-item: false
+    remove-blocks: true
+    call-target-event: false
+    check-plugins: true
+terre2terra5:
+    spell-class: ".instant.ThrowBlockSpell"
+    block-type: stonebrick
+    velocity: 1.1
+    vertical-adjustment: 9
+    rotation-offset: 180
+    fall-damage: 4
+    fall-damage-max: 6
+    drop-item: false
+    remove-blocks: true
+    call-target-event: false
+    check-plugins: true
+terre2terra6:
+    spell-class: ".instant.ThrowBlockSpell"
+    block-type: stonebrick
+    velocity: 1.2
+    vertical-adjustment: 10
+    rotation-offset: 225
+    fall-damage: 4
+    fall-damage-max: 6
+    drop-item: false
+    remove-blocks: true
+    call-target-event: false
+    check-plugins: true
+terre2terra7:
+    spell-class: ".instant.ThrowBlockSpell"
+    block-type: stonebrick
+    velocity: 0.9
+    vertical-adjustment: 11
+    rotation-offset: 270
+    fall-damage: 4
+    fall-damage-max: 6
+    drop-item: false
+    remove-blocks: true
+    call-target-event: false
+    check-plugins: true
+terre2terra8:
+    spell-class: ".instant.ThrowBlockSpell"
+    block-type: stonebrick
+    velocity: 0.7
+    vertical-adjustment: 12
+    rotation-offset: 315
+    fall-damage: 4
+    fall-damage-max: 6
+    drop-item: false
+    remove-blocks: true
+    call-target-event: false
+    check-plugins: true
+terre2terra9:
+    spell-class: ".instant.ThrowBlockSpell"
+    block-type: stonebrick
+    velocity: 0.6
+    vertical-adjustment: 5
+    rotation-offset: 360
+    fall-damage: 4
+    fall-damage-max: 6
+    drop-item: false
+    remove-blocks: true
+    call-target-event: false
+    check-plugins: true
+pain_terre2:
+    spell-class: ".targeted.PainSpell"
+    damage: 2
+    modifiers:
+        - inblock 8,9 power 0
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+############################## terre 2 fin
+############################## vent
+ventlol:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: Brise
+    projectile-velocity: 6
+    tick-interval: 1
+    special-effect-interval: 1
+    hug-surface: true
+    height-from-surface: 0.3
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 0
+    particle-count: 0
+    max-duration: 130
+    max-distance: 3
+    render-distance: 32
+    spell: Vent_Multi_Aoe
+Vent_Multi_Aoe:
+    spell-class: ".TargetedMultiSpell"
+    can-target: players,nonplayers
+    stop-on-fail: false
+    spells:
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+        - DELAY 10
+        - vent_MultiSort
+vent_Droite:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 2
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: 90
+    hug-surface: true
+    height-from-surface: 0.3
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_Gauche:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 2
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: -90
+    hug-surface: true
+    height-from-surface: 0.3
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_DroiteHaut:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 3
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: 90
+    hug-surface: true
+    height-from-surface: 0.6
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_GaucheHaut:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 3
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: -90
+    hug-surface: true
+    height-from-surface: 0.6
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_DroiteHaut2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 1
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: 90
+    hug-surface: true
+    height-from-surface: 1
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_GaucheHaut2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 1
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: -90
+    hug-surface: true
+    height-from-surface: 1
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_DroiteHaut3:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 3
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: 90
+    hug-surface: true
+    height-from-surface: 1.3
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_GaucheHaut3:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 3
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: -90
+    hug-surface: true
+    height-from-surface: 1.3
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_DroiteHaut4:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 3
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: 90
+    hug-surface: true
+    height-from-surface: 1.6
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_GaucheHaut4:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 3
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: -90
+    hug-surface: true
+    height-from-surface: 1.6
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_DroiteHaut5:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 3
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: 90
+    hug-surface: true
+    height-from-surface: 2
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_GaucheHaut5:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 3
+    tick-interval: 1
+    special-effect-interval: 1
+    projectile-horiz-offset: -90
+    hug-surface: true
+    height-from-surface: 2
+    hit-air-during: true
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-at-end: false
+    particle-vertical-spread: 0.2
+    particle-horizontal-spread: 0.2
+    can-target: players, nonplayers
+    particle-name: cloud
+    target-players: true
+    target-non-players: true
+    hit-radius: 2.8
+    particle-count: 0
+    max-duration: 130
+    max-distance: 6
+    render-distance: 32
+    spell: vent_bomb
+vent_MultiSort:
+    spell-class: ".TargetedMultiSpell"
+    check-individual-cooldowns: false
+    require-entity-target: false
+    target-players: false
+    stop-on-fail: false
+    spells:
+        - vent_Gauche
+        - vent_GaucheHaut
+        - vent_GaucheHaut2
+        - vent_GaucheHaut3
+        - vent_GaucheHaut4
+        - vent_GaucheHaut5
+        - vent_Droite
+        - vent_DroiteHaut
+        - vent_DroiteHaut2
+        - vent_DroiteHaut3
+        - vent_DroiteHaut4
+        - vent_DroiteHaut5
+vent_bomb:
+    spell-class: ".targeted.ForcebombSpell"
+    radius: 2
+    pushback-force: 60
+    additional-vertical-force: 0
+    max-vertical-force: 0
+    target-players: true
+    target-non-players: true
+    dont-target-caster: false
+############################## vent 2
+vent2lol:
+    spell-class: ".instant.ParticleProjectileSpell"
+    name: Rafales
+    projectile-velocity: 12
+    tick-interval: 1
+    special-effect-interval: 1
+    spell-interval: 1
+    hug-surface: true
+    height-from-surface: 0.3
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-during: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    can-target: players, nonplayers
+    particle-name: largeexplode
+    target-players: true
+    target-non-players: true
+    hit-radius: 0
+    particle-count: 1
+    max-duration: 15
+    max-distance: 20
+    render-distance: 32
+    spell: vent2_MultiSort
+vent2_tornade:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 35
+    projectile-gravity: 0
+    tick-interval: 1
+    projectile-spread: 0.7
+    projectile-vert-offset: 20
+    special-effect-interval: 1
+    spell-interval: 5
+    hug-surface: false
+    height-from-surface: 0
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-during: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    can-target: players, nonplayers
+    particle-name: largeexplode
+    target-players: true
+    target-non-players: true
+    hit-radius: 9
+    particle-count: 6
+    max-duration: 15
+    max-distance: 9
+    render-distance: 32
+    spell: pain_vent2
+vent2_MultiSort:
+    spell-class: ".TargetedMultiSpell"
+    check-individual-cooldowns: false
+    require-entity-target: false
+    target-players: true
+    target-non-players: true
+    stop-on-fail: false
+    spells:
+        - vent2_tornade
+        - vent2_bomb
+        - pain_vent2
+vent2_bomb:
+    spell-class: ".targeted.ForcebombSpell"
+    radius: 9
+    pushback-force: -8
+    additional-vertical-force: 8
+    max-vertical-force: 15
+    target-players: true
+    target-non-players: true
+    dont-target-caster: false
+pain_vent2:
+    spell-class: ".targeted.PainSpell"
+    damage: 1
+    modifiers:
+        - outside addpower 1
+        - elevationabove 90 addpower 4
+        - inblock 8,9 power 0
+        - roof 5 power 0
+    spell-damage-type: "CONTACT"
+    ignore-armor: false
+    obey-los: true
+    can-target: players,nonplayers,invisibles
+    check-plugins: true
+############################## vent 2 fin

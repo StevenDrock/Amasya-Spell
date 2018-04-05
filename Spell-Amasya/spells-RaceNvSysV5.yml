@@ -1,0 +1,4636 @@
+# BouleFeu P0 #
+BouleFeu_0:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "49"
+    projectile-velocity: 6
+    projectile-gravity: 0.12
+    cooldown: 108
+    tick-interval: 1
+    special-effect-interval: 1
+    stop-on-hit-entity: true
+    stop-on-hit-ground: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    can-target: players, nonplayers
+    #particle-name: blockcrack
+    target-players: true
+    target-non-players: true
+    hit-radius: 0.5
+    particle-count: 0
+    max-duration: 130
+    max-distance: 64
+    render-distance: 64
+    cost:
+        - 49 21
+    spell: BouleFeu_Multi_Aoe_0
+    effects:
+        Red:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: RED
+        Orange:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.35
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: 000000
+BouleFeu_Multi_Aoe_0:
+    spell-class: ".TargetedMultiSpell"
+    can-target: players,nonplayers
+    stop-on-fail: false
+    spells:
+        - BouleFeu_Aoe1_0
+        - DELAY 2
+        - BouleFeu_Aoe2_0
+        - DELAY 2
+        - BouleFeu_Aoe3_0
+        - DELAY 2
+        - BouleFeu_Aoe4_0
+        - DELAY 2
+        - BouleFeu_Aoe_0
+        - DELAY 15
+        - BouleFeu_Aoe_0
+        - DELAY 15
+        - BouleFeu_Aoe_0
+        - DELAY 15
+        - BouleFeu_Aoe_0
+BouleFeu_Aoe1_0:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 1
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_0
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 100
+            render-distance: 64
+BouleFeu_Aoe2_0:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_0
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 150
+            render-distance: 64
+BouleFeu_Aoe3_0:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_0
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.8
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 200
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+BouleFeu_Aoe4_0:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3.5
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_0
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.0
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 250
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+BouleFeu_Aoe_0:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 4
+    vertical-radius: 2
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_0
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 300
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+BouleFeu_FireDmg_0:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 20
+    fire-tick-damage: 1
+    can-target: players,nonplayers
+    prevent-immunity: false
+    target-players: true
+    check-plugins: false
+# BouleFeu P1 #
+BouleFeu_1:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "49"
+    projectile-velocity: 7
+    projectile-gravity: 0.12
+    cooldown: 96
+    tick-interval: 1
+    special-effect-interval: 1
+    stop-on-hit-entity: true
+    stop-on-hit-ground: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    can-target: players, nonplayers
+    #particle-name: blockcrack
+    target-players: true
+    target-non-players: true
+    hit-radius: 0.5
+    particle-count: 0
+    max-duration: 130
+    max-distance: 64
+    render-distance: 64
+    cost:
+        - 49 21
+    spell: BouleFeu_Multi_Aoe_1
+    effects:
+        Red:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: RED
+        Orange:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.35
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: 000000
+BouleFeu_Multi_Aoe_1:
+    spell-class: ".TargetedMultiSpell"
+    can-target: players,nonplayers
+    stop-on-fail: false
+    spells:
+        - BouleFeu_Aoe1_1
+        - DELAY 2
+        - BouleFeu_Aoe2_1
+        - DELAY 2
+        - BouleFeu_Aoe3_1
+        - DELAY 2
+        - BouleFeu_Aoe4_1
+        - DELAY 2
+        - BouleFeu_Aoe_1
+        - DELAY 15
+        - BouleFeu_Aoe_1
+        - DELAY 15
+        - BouleFeu_Aoe_1
+        - DELAY 15
+        - BouleFeu_Aoe_1
+        - DELAY 15
+        - BouleFeu_Aoe_1
+        - DELAY 15
+        - BouleFeu_Aoe_1
+BouleFeu_Aoe1_1:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 1
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_1
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 100
+            render-distance: 64
+BouleFeu_Aoe2_1:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_1
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 150
+            render-distance: 64
+BouleFeu_Aoe3_1:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_1
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.8
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 200
+            render-distance: 64
+BouleFeu_Aoe4_1:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3.5
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_1
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.0
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 250
+            render-distance: 64
+BouleFeu_Aoe_1:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 4
+    vertical-radius: 2
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_1
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 300
+            render-distance: 64
+BouleFeu_FireDmg_1:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 20
+    fire-tick-damage: 1
+    can-target: players,nonplayers
+    prevent-immunity: false
+    target-players: true
+    check-plugins: false
+# BouleFeu P2 #
+BouleFeu_2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "49"
+    projectile-velocity: 8
+    projectile-gravity: 0.12
+    cooldown: 84
+    tick-interval: 1
+    special-effect-interval: 1
+    stop-on-hit-entity: true
+    stop-on-hit-ground: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    can-target: players, nonplayers
+    #particle-name: blockcrack
+    target-players: true
+    target-non-players: true
+    hit-radius: 0.5
+    particle-count: 0
+    max-duration: 130
+    max-distance: 64
+    render-distance: 64
+    cost:
+        - 49 21
+    spell: BouleFeu_Multi_Aoe_2
+    effects:
+        Red:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: RED
+        Orange:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.35
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: 000000
+BouleFeu_Multi_Aoe_2:
+    spell-class: ".TargetedMultiSpell"
+    can-target: players,nonplayers
+    stop-on-fail: false
+    spells:
+        - BouleFeu_Aoe1_2
+        - DELAY 2
+        - BouleFeu_Aoe2_2
+        - DELAY 2
+        - BouleFeu_Aoe3_2
+        - DELAY 2
+        - BouleFeu_Aoe4_2
+        - DELAY 2
+        - BouleFeu_Aoe_2
+        - DELAY 15
+        - BouleFeu_Aoe_2
+        - DELAY 15
+        - BouleFeu_Aoe_2
+        - DELAY 15
+        - BouleFeu_Aoe_2
+        - DELAY 15
+        - BouleFeu_Aoe_2
+        - DELAY 15
+        - BouleFeu_Aoe_2
+        - DELAY 15
+        - BouleFeu_Aoe_2
+        - DELAY 15
+        - BouleFeu_Aoe_2
+BouleFeu_Aoe1_2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 1
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_2
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 100
+            render-distance: 64
+BouleFeu_Aoe2_2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_2
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 150
+            render-distance: 64
+BouleFeu_Aoe3_2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_2
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.8
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 200
+            render-distance: 64
+BouleFeu_Aoe4_2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3.5
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_2
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.0
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 250
+            render-distance: 64
+BouleFeu_Aoe_2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 4
+    vertical-radius: 2
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_2
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 300
+            render-distance: 64
+BouleFeu_FireDmg_2:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 20
+    fire-tick-damage: 1
+    can-target: players,nonplayers
+    prevent-immunity: false
+    target-players: true
+    check-plugins: false
+# BouleFeu P3 #
+BouleFeu_3:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "49"
+    projectile-velocity: 9
+    projectile-gravity: 0.12
+    cooldown: 72
+    tick-interval: 1
+    special-effect-interval: 1
+    stop-on-hit-entity: true
+    stop-on-hit-ground: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    can-target: players, nonplayers
+    #particle-name: blockcrack
+    target-players: true
+    target-non-players: true
+    hit-radius: 0.5
+    particle-count: 0
+    max-duration: 130
+    max-distance: 64
+    render-distance: 64
+    cost:
+        - 49 21
+    spell: BouleFeu_Multi_Aoe_3
+    effects:
+        Red:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: RED
+        Orange:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.35
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: 000000
+BouleFeu_Multi_Aoe_3:
+    spell-class: ".TargetedMultiSpell"
+    can-target: players,nonplayers
+    stop-on-fail: false
+    spells:
+        - BouleFeu_Aoe1_3
+        - DELAY 2
+        - BouleFeu_Aoe2_3
+        - DELAY 2
+        - BouleFeu_Aoe3_3
+        - DELAY 2
+        - BouleFeu_Aoe4_3
+        - DELAY 2
+        - BouleFeu_Aoe_3
+        - DELAY 15
+        - BouleFeu_Aoe_3
+        - DELAY 15
+        - BouleFeu_Aoe_3
+        - DELAY 15
+        - BouleFeu_Aoe_3
+        - DELAY 15
+        - BouleFeu_Aoe_3
+        - DELAY 15
+        - BouleFeu_Aoe_3
+        - DELAY 15
+        - BouleFeu_Aoe_3
+        - DELAY 15
+        - BouleFeu_Aoe_3
+        - DELAY 15
+        - BouleFeu_Aoe_3
+        - DELAY 15
+        - BouleFeu_Aoe_3
+BouleFeu_Aoe1_3:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 1
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_3
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 100
+            render-distance: 64
+BouleFeu_Aoe2_3:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_3
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 150
+            render-distance: 64
+BouleFeu_Aoe3_3:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_3
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.8
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 200
+            render-distance: 64
+BouleFeu_Aoe4_3:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3.5
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_3
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.0
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 250
+            render-distance: 64
+BouleFeu_Aoe_3:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 4
+    vertical-radius: 2
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_3
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 300
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+BouleFeu_FireDmg_3:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 20
+    fire-tick-damage: 1
+    can-target: players,nonplayers
+    prevent-immunity: false
+    target-players: true
+    check-plugins: false
+# BouleFeu P4 #
+BouleFeu_4:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "49"
+    projectile-velocity: 10
+    projectile-gravity: 0.12
+    cooldown: 60
+    tick-interval: 1
+    special-effect-interval: 1
+    stop-on-hit-entity: true
+    stop-on-hit-ground: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    can-target: players, nonplayers
+    #particle-name: blockcrack
+    target-players: true
+    target-non-players: true
+    hit-radius: 0.5
+    particle-count: 0
+    max-duration: 130
+    max-distance: 64
+    render-distance: 64
+    cost:
+        - 49 21
+    spell: BouleFeu_Multi_Aoe_4
+    effects:
+        Red:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.25
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: RED
+        Orange:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.35
+                particles: 32
+                period: 1
+                visibleRange: 64
+                color: 000000
+BouleFeu_Multi_Aoe_4:
+    spell-class: ".TargetedMultiSpell"
+    can-target: players,nonplayers
+    stop-on-fail: false
+    spells:
+        - BouleFeu_Aoe1_4
+        - DELAY 2
+        - BouleFeu_Aoe2_4
+        - DELAY 2
+        - BouleFeu_Aoe3_4
+        - DELAY 2
+        - BouleFeu_Aoe4_4
+        - DELAY 2
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+        - DELAY 15
+        - BouleFeu_Aoe_4
+BouleFeu_Aoe1_4:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 1
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_4
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 100
+            render-distance: 64
+BouleFeu_Aoe2_4:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_4
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 150
+            render-distance: 64
+BouleFeu_Aoe3_4:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_4
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.8
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 200
+            render-distance: 64
+BouleFeu_Aoe4_4:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 3.5
+    vertical-radius: 1
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_4
+    effects:
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.0
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 250
+            render-distance: 64
+BouleFeu_Aoe_4:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 4
+    vertical-radius: 2
+    point-blank: false
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - BouleFeu_FireDmg_4
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.3
+            vert-spread: 0.1
+            y-offset: 0.1
+            speed: 0.01
+            count: 300
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 2
+            volume: 2
+            position: special
+BouleFeu_FireDmg_4:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 20
+    fire-tick-damage: 2
+    can-target: players,nonplayers
+    prevent-immunity: false
+    target-players: true
+    check-plugins: false
+#Deflagration P1
+Deflagration_0:
+    spell-class: ".MultiSpell"
+    cast-item: "348"
+    cooldown: 60
+    spells:
+     - Deflagration_Charge1
+     - DELAY 55
+     - Deflagration_ex1
+Deflagration_Charge1:
+    spell-class: ".buff.DummySpell"
+    duration: 3
+    effects:
+        Effect_1:
+            position: orbit
+            orbit-radius: 0
+            orbit-tick-interval: 1
+            forward-offset: 0
+            orbit-seconds-per-revolution: 1
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.8
+            y-offset: 0
+            speed: 0.01
+            count: 3
+            render-distance: 64
+Deflagration_ex1:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2
+    vertical-radius: 2
+    point-blank: true
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Deflagration_Toss_1
+        - Deflagration_FireDmg_1
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.8
+            vert-spread: 0.8
+            y-offset: 0.3
+            speed: 0.05
+            count: 100
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 1
+            volume: 2
+            position: special
+Deflagration_Toss_1:
+    spell-class: ".targeted.ForcetossSpell"
+    damage: 0
+    horizontal-force: 6
+    vertical-force: 6
+    obey-los: false
+    can-target: players,nonplayers
+    target-players: true
+    check-plugins: true
+Deflagration_FireDmg_1:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 10
+    fire-tick-damage: 1
+    prevent-immunity: false
+    can-target: players,nonplayers
+    target-players: true
+    check-plugins: true
+#Deflagration P2
+Deflagration_1:
+    spell-class: ".MultiSpell"
+    cast-item: "348"
+    cooldown: 60
+    spells:
+     - Deflagration_Charge2
+     - DELAY 55
+     - Deflagration_ex2
+Deflagration_Charge2:
+    spell-class: ".buff.DummySpell"
+    duration: 3
+    effects:
+        Effect_1:
+            position: orbit
+            orbit-radius: 0
+            orbit-tick-interval: 1
+            forward-offset: 0
+            orbit-seconds-per-revolution: 1
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.8
+            y-offset: 0
+            speed: 0.01
+            count: 3
+            render-distance: 64
+Deflagration_ex2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 4
+    vertical-radius: 4
+    point-blank: true
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Deflagration_Toss_2
+        - Deflagration_FireDmg_2
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.8
+            vert-spread: 0.8
+            y-offset: 0.3
+            speed: 0.05
+            count: 100
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 1
+            volume: 2
+            position: special
+Deflagration_Toss_2:
+    spell-class: ".targeted.ForcetossSpell"
+    damage: 0
+    horizontal-force: 8
+    vertical-force: 8
+    obey-los: false
+    can-target: players,nonplayers
+    target-players: true
+    check-plugins: true
+Deflagration_FireDmg_2:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 10
+    fire-tick-damage: 1
+    prevent-immunity: false
+    target-players: true
+    check-plugins: true
+#Deflagration P3
+Deflagration_2:
+    spell-class: ".MultiSpell"
+    cast-item: "348"
+    cooldown: 60
+    spells:
+     - Deflagration_Charge3
+     - DELAY 40
+     - Deflagration_ex3
+Deflagration_Charge3:
+    spell-class: ".buff.DummySpell"
+    duration: 2
+    effects:
+        Effect_1:
+            position: orbit
+            orbit-radius: 0
+            orbit-tick-interval: 1
+            forward-offset: 0
+            orbit-seconds-per-revolution: 1
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.8
+            y-offset: 0
+            speed: 0.01
+            count: 3
+            render-distance: 64
+Deflagration_ex3:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 6
+    vertical-radius: 6
+    point-blank: true
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Deflagration_Toss_3
+        - Deflagration_FireDmg_3
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.8
+            vert-spread: 0.8
+            y-offset: 0.3
+            speed: 0.05
+            count: 100
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 1
+            volume: 2
+            position: special
+Deflagration_Toss_3:
+    spell-class: ".targeted.ForcetossSpell"
+    damage: 0
+    horizontal-force: 10
+    vertical-force: 10
+    obey-los: false
+    can-target: players,nonplayers
+    target-players: true
+    check-plugins: true
+Deflagration_FireDmg_3:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 10
+    fire-tick-damage: 2
+    prevent-immunity: false
+    target-players: true
+    check-plugins: true
+#Deflagration P4
+Deflagration_3:
+    spell-class: ".MultiSpell"
+    cast-item: "348"
+    cooldown: 60
+    spells:
+     - Deflagration_Charge4
+     - DELAY 40
+     - Deflagration_ex4
+Deflagration_Charge4:
+    spell-class: ".buff.DummySpell"
+    duration: 2
+    effects:
+        Effect_1:
+            position: orbit
+            orbit-radius: 0
+            orbit-tick-interval: 1
+            forward-offset: 0
+            orbit-seconds-per-revolution: 1
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.8
+            y-offset: 0
+            speed: 0.01
+            count: 3
+            render-distance: 64
+Deflagration_ex4:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 8
+    vertical-radius: 8
+    point-blank: true
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Deflagration_Toss_4
+        - Deflagration_FireDmg_4
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.8
+            vert-spread: 0.8
+            y-offset: 0.3
+            speed: 0.05
+            count: 100
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 1
+            volume: 2
+            position: special
+Deflagration_Toss_4:
+    spell-class: ".targeted.ForcetossSpell"
+    damage: 0
+    horizontal-force: 12
+    vertical-force: 12
+    obey-los: false
+    can-target: players,nonplayers
+    target-players: true
+    check-plugins: true
+Deflagration_FireDmg_4:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 10
+    fire-tick-damage: 1
+    prevent-immunity: false
+    target-players: true
+    check-plugins: true
+#Deflagration P5
+Deflagration_4:
+    spell-class: ".MultiSpell"
+    cast-item: "348"
+    cooldown: 60
+    spells:
+     - Deflagration_Charge5
+     - DELAY 20
+     - Deflagration_ex5
+Deflagration_Charge5:
+    spell-class: ".buff.DummySpell"
+    duration: 1
+    effects:
+        Effect_1:
+            position: orbit
+            orbit-radius: 0
+            orbit-tick-interval: 1
+            forward-offset: 0
+            orbit-seconds-per-revolution: 1
+            effect: particles
+            particle-name: flame
+            horiz-spread: 0.5
+            vert-spread: 0.8
+            y-offset: 0
+            speed: 0.01
+            count: 3
+            render-distance: 64
+Deflagration_ex5:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    max-targets: 0
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Deflagration_Toss_5
+        - Deflagration_FireDmg_5
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: flame
+            horiz-spread: 1.1
+            vert-spread: 1.1
+            y-offset: 0.3
+            speed: 0.05
+            count: 100
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: random.fizz
+            pitch: 1
+            volume: 2
+            position: special
+Deflagration_Toss_5:
+    spell-class: ".targeted.ForcetossSpell"
+    damage: 0
+    horizontal-force: 14
+    vertical-force: 14
+    obey-los: false
+    can-target: players,nonplayers
+    target-players: true
+    check-plugins: true
+Deflagration_FireDmg_5:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 10
+    fire-tick-damage: 3
+    prevent-immunity: false
+    target-players: true
+    check-plugins: true
+#Jambe1 Ame
+Jambe_0:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 79
+    type: 1
+    strength: 0
+    duration: 40
+    targeted: false
+#Jambe2 Ame
+Jambe_1:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 77
+    type: 1
+    strength: 0
+    duration: 80
+    targeted: false
+#Jambe3 Ame
+Jambe_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 75
+    type: 1
+    strength: 0
+    duration: 120
+    targeted: false
+#Jambe4 Ame
+Jambe_3:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 73
+    type: 1
+    strength: 0
+    duration: 160
+    targeted: false
+#Jambe5 Ame
+Jambe_4:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 70
+    type: 1
+    strength: 0
+    duration: 200
+    targeted: false
+#PeauPierre1
+PeauPierre_0:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 100
+    type: 11
+    strength: 0
+    duration: 40
+    targeted: false
+#PeauPierre2
+PeauPierre_1:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 90
+    type: 11
+    strength: 0
+    duration: 80
+    targeted: false
+#PeauPierre3
+PeauPierre_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 80
+    type: 11
+    strength: 0
+    duration: 120
+    targeted: false
+#PeauPierre4
+PeauPierre_3:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 70
+    type: 11
+    strength: 0
+    duration: 160
+    targeted: false
+#PeauPierre5
+PeauPierre_4:
+    spell-class: ".targeted.PotionEffectSpell"
+    cast-item: "348"
+    cooldown: 60
+    type: 11
+    strength: 0
+    duration: 200
+    targeted: false
+# Linceuil Magmatique 0#
+linceuiltp:
+    spell-class: ".ExternalCommandSpell"
+    execute-on-console-instead: true
+    command-to-execute:
+        - "tp %a %a"
+LinceuilMag_Multi_0:
+    spell-class: ".MultiSpell"
+    cast-item: "378"
+    cooldown: 300
+    variable-mods-cast:
+        - meta_velocity_y =100
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    spells:
+        - linceuiltp
+        - LinceuilMag_Heal_0
+        - LinceuilMag_Feu_0
+        - LinceuilMag_Stun_0
+LinceuilMag_Heal_0:
+    spell-class: ".instant.PrayerSpell"
+    amount-healed: 10
+    effects:
+        Effect_1:
+            position: caster
+            effect: particles
+            particle-name: largeexplode
+            horiz-spread: 0.2
+            vert-spread: 0.95
+            speed: 0.1
+            count: 10
+        sound:
+            position: caster
+            effect: sound
+            sound: fireworks.blast
+            pitch: 0
+            volume: 2
+LinceuilMag_Feu_0:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 200
+    fire-tick-damage: 1
+    beneficial: true
+    prevent-immunity: true
+    check-plugins: true
+    target-self: true
+    can-target: players
+LinceuilMag_Stun_0:
+    spell-class: ".targeted.StunSpell"
+    target-self: true
+    duration: 5
+    variable-mods-cast:
+          - meta_location_pitch =100
+    effects:
+        Effect_1:
+            position: buff
+            height-offset: 1
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.90
+                particles: 100
+                period: 1
+                visibleRange: 32
+                color: 000000
+# Linceuil Magmatique 1#
+LinceuilMag_Multi_1:
+    spell-class: ".MultiSpell"
+    cast-item: "378"
+    cooldown: 300
+    variable-mods-cast:
+        - meta_velocity_y =100
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    spells:
+        - linceuiltp
+        - LinceuilMag_Heal_1
+        - LinceuilMag_Feu_1
+        - LinceuilMag_Stun_1
+LinceuilMag_Heal_1:
+    spell-class: ".instant.PrayerSpell"
+    amount-healed: 15
+    effects:
+        Effect_1:
+            position: caster
+            effect: particles
+            particle-name: largeexplode
+            horiz-spread: 0.2
+            vert-spread: 0.95
+            speed: 0.1
+            count: 10
+        sound:
+            position: caster
+            effect: sound
+            sound: fireworks.blast
+            pitch: 0
+            volume: 2
+LinceuilMag_Feu_1:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 300
+    fire-tick-damage: 1
+    beneficial: true
+    prevent-immunity: true
+    check-plugins: true
+    target-self: true
+    can-target: players
+LinceuilMag_Stun_1:
+    spell-class: ".targeted.StunSpell"
+    target-self: true
+    duration: 5
+    variable-mods-cast:
+          - meta_location_pitch =100
+    effects:
+        Effect_1:
+            position: buff
+            height-offset: 1
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.90
+                particles: 100
+                period: 1
+                visibleRange: 32
+                color: 000000
+# Linceuil Magmatique 2#
+LinceuilMag_Multi_2:
+    spell-class: ".MultiSpell"
+    cast-item: "378"
+    cooldown: 300
+    variable-mods-cast:
+        - meta_velocity_y =100
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    spells:
+        - linceuiltp
+        - LinceuilMag_Heal_2
+        - LinceuilMag_Feu_2
+        - LinceuilMag_Stun_2
+LinceuilMag_Heal_2:
+    spell-class: ".instant.PrayerSpell"
+    amount-healed: 20
+    effects:
+        Effect_1:
+            position: caster
+            effect: particles
+            particle-name: largeexplode
+            horiz-spread: 0.2
+            vert-spread: 0.95
+            speed: 0.1
+            count: 10
+        sound:
+            position: caster
+            effect: sound
+            sound: fireworks.blast
+            pitch: 0
+            volume: 2
+LinceuilMag_Feu_2:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 400
+    fire-tick-damage: 1
+    beneficial: true
+    prevent-immunity: true
+    check-plugins: true
+    target-self: true
+    can-target: players
+LinceuilMag_Stun_2:
+    spell-class: ".targeted.StunSpell"
+    target-self: true
+    duration: 5
+    variable-mods-cast:
+          - meta_location_pitch =100
+    effects:
+        Effect_1:
+            position: buff
+            height-offset: 1
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.90
+                particles: 100
+                period: 1
+                visibleRange: 32
+                color: 000000
+# Linceuil Magmatique 3#
+LinceuilMag_Multi_3:
+    spell-class: ".MultiSpell"
+    cast-item: "378"
+    cooldown: 300
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    spells:
+        - linceuiltp
+        - LinceuilMag_Heal_3
+        - LinceuilMag_Feu_3
+        - LinceuilMag_Stun_3
+LinceuilMag_Heal_3:
+    spell-class: ".instant.PrayerSpell"
+    amount-healed: 25
+    effects:
+        Effect_1:
+            position: caster
+            effect: particles
+            particle-name: largeexplode
+            horiz-spread: 0.2
+            vert-spread: 0.95
+            speed: 0.1
+            count: 10
+        sound:
+            position: caster
+            effect: sound
+            sound: fireworks.blast
+            pitch: 0
+            volume: 2
+LinceuilMag_Feu_3:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 500
+    fire-tick-damage: 1
+    beneficial: true
+    prevent-immunity: true
+    check-plugins: true
+    target-self: true
+    can-target: players
+LinceuilMag_Stun_3:
+    spell-class: ".targeted.StunSpell"
+    target-self: true
+    duration: 5
+    variable-mods-cast:
+          - meta_location_pitch =100
+    effects:
+        Effect_1:
+            position: buff
+            height-offset: 1
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.90
+                particles: 100
+                period: 1
+                visibleRange: 32
+                color: 000000
+# Linceuil Magmatique 4#
+LinceuilMag_Multi_4:
+    spell-class: ".MultiSpell"
+    cast-item: "378"
+    cooldown: 300
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    spells:
+        - linceuiltp
+        - LinceuilMag_Heal_4
+        - LinceuilMag_Feu_4
+        - LinceuilMag_Stun_4
+LinceuilMag_Heal_4:
+    spell-class: ".instant.PrayerSpell"
+    amount-healed: 40
+    effects:
+        Effect_1:
+            position: caster
+            effect: particles
+            particle-name: largeexplode
+            horiz-spread: 0.2
+            vert-spread: 0.95
+            speed: 0.1
+            count: 10
+        sound:
+            position: caster
+            effect: sound
+            sound: fireworks.blast
+            pitch: 0
+            volume: 2
+LinceuilMag_Feu_4:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 600
+    fire-tick-damage: 1
+    beneficial: true
+    prevent-immunity: true
+    check-plugins: true
+    target-self: true
+    can-target: players
+LinceuilMag_Stun_4:
+    spell-class: ".targeted.StunSpell"
+    target-self: true
+    duration: 5
+    variable-mods-cast:
+          - meta_location_pitch =100
+    effects:
+        Effect_1:
+            position: buff
+            height-offset: 1
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 0.90
+                particles: 100
+                period: 1
+                visibleRange: 32
+                color: 000000
+#BOBOOBO
+# Bourasque #
+Bourrasque_0:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 180
+    range: 15
+    damage: 0
+    horizontal-force: 8
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 5
+# Bourasque 1 #
+Bourrasque_1:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 160
+    range: 15
+    damage: 0
+    horizontal-force: 8
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 5
+# Bourasque 2 #
+Bourrasque_2:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 160
+    range: 15
+    damage: 0
+    horizontal-force: 13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Bourasque 3 #
+Bourrasque_3:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 160
+    range: 20
+    damage: 0
+    horizontal-force: 13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Bourasque 4 #
+Bourrasque_4:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 140
+    range: 20
+    damage: 0
+    horizontal-force: 13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Bourasque 5 #
+Bourrasque_5:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 120
+    range: 20
+    damage: 0
+    horizontal-force: 13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Bourasque 6 #
+Bourrasque_6:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 120
+    range: 25
+    damage: 0
+    horizontal-force: 13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Bourasque 7 #
+Bourrasque_7:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 120
+    range: 25
+    damage: 0
+    horizontal-force: 18
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 15
+# Bourasque 8 #
+Bourrasque_8:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 120
+    range: 30
+    damage: 0
+    horizontal-force: 18
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 15
+# Bourasque 9 #
+Bourrasque_9:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:9"
+    cooldown: 120
+    range: 30
+    damage: 0
+    horizontal-force: 25
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 25
+# Vent_Tournoyant #
+Vent_Tournoyant_0:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:14"
+    cooldown: 180
+    range: 15
+    damage: 0
+    horizontal-force: -8
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 5
+# Vent_Tournoyant 1 #
+Vent_Tournoyant_1:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:14"
+    cooldown: 160
+    range: 15
+    damage: 0
+    horizontal-force: -8
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 5
+# Vent_Tournoyant 2 #
+Vent_Tournoyant_2:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:14"
+    cooldown: 160
+    range: 15
+    damage: 0
+    horizontal-force: -13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Vent_Tournoyant 3 #
+Vent_Tournoyant_3:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:14"
+    cooldown: 160
+    range: 20
+    damage: 0
+    horizontal-force: -13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Vent_Tournoyant 4 #
+Vent_Tournoyant_4:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:14"
+    cooldown: 140
+    range: 20
+    damage: 0
+    horizontal-force: -13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Vent_Tournoyant 5 #
+Vent_Tournoyant_5:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:14"
+    cooldown: 120
+    range: 20
+    damage: 0
+    horizontal-force: -13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Vent_Tournoyant 6 #
+Vent_Tournoyant_6:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:14"
+    cooldown: 120
+    range: 25
+    damage: 0
+    horizontal-force: -13
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 10
+# Vent_Tournoyant 7 #
+Vent_Tournoyant_7:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:14"
+    cooldown: 120
+    range: 25
+    damage: 0
+    horizontal-force: -18
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 15
+# Vent_Tournoyant 8 #
+Vent_Tournoyant_8:
+    spell-class: ".targeted.ForcetossSpell"
+    cast-item: "351:14"
+    cooldown: 120
+    range: 30
+    damage: 0
+    horizontal-force: -18
+    vertical-force: 10
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 15
+# Vent_Tournoyant 9 #
+Vent_Tournoyant_9:
+    spell-class: ".targeted.ForcetossSpell"
+    right-click-cast-item: "351:9"
+    cooldown: 120
+    range: 30
+    damage: 0
+    horizontal-force: -25
+    vertical-force: 8
+    obey-los: true
+    can-target: players,nonplayers
+    check-plugins: true
+    effects:
+        eff_1:
+            position: target
+            effect: particles
+            particle-name: cloud
+            horiz-spread: 0.3
+            vert-spread: 0.5
+            y-offset: 1
+            count: 25
+##
+# Bénédiction des fées 0 #
+TargetbuffBene_0:
+    spell-class: ".MultiSpell"
+    cast-item: "351:15"
+    cooldown: 600
+    point-blank: true
+    spells:
+        - BuffBene
+        - bene_Aoe_0
+        - Bene_commande
+bene_Aoe_0:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 5
+    vertical-radius: 5
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - BuffBene
+    effects:
+        sound:
+            effect: sound
+            sound: mob.guardian.curse
+            pitch: 1
+            volume: 2
+            position: special 
+TargetBuffapplication_0:
+    spell-class: ".targeted.DummySpell"
+    target-self: true
+    target-players: true
+    spells: 
+        - BuffBene
+BuffBene:
+    spell-class: ".buff.DummySpell"
+    duration: 30
+BuffBeneActEff:
+    spell-class: ".PassiveSpell"
+    modifiers:
+        - buffactive BuffBene required
+    triggers: 
+        - ticks 5
+    spells:
+        - BeneRemovation
+BeneRemovation:
+    spell-class: ".targeted.CleanseSpell"
+    remove:
+      - fire
+      - 2
+      - 9
+      - 15
+      - 18
+      - 17
+      - 20
+    target-self: true
+    beneficial: true
+Bene_commande:
+    spell-class: ".ExternalCommandSpell"
+    execute-on-console-instead: true
+    command-to-execute:
+        - "noDot %a"
+# Bénédiction des fées 1 #
+TargetbuffBene_1:
+    spell-class: ".MultiSpell"
+    cast-item: "351:15"
+    cooldown: 540
+    point-blank: true
+    spells:
+        - BuffBene
+        - bene_Aoe_0
+        - Bene_commande
+# Bénédiction des fées 2 #
+TargetbuffBene_2:
+    spell-class: ".MultiSpell"
+    cast-item: "351:15"
+    cooldown: 480
+    point-blank: true
+    spells:
+        - BuffBene
+        - bene_Aoe_0
+        - Bene_commande
+# Bénédiction des fées 3 #
+TargetbuffBene_3:
+    spell-class: ".MultiSpell"
+    cast-item: "351:15"
+    cooldown: 420
+    point-blank: true
+    spells:
+        - BuffBene
+        - bene_Aoe_0
+        - Bene_commande
+# Bénédiction des fées 4 #
+TargetbuffBene_4:
+    spell-class: ".MultiSpell"
+    right-click-cast-item: "paper"
+    cooldown: 300
+    point-blank: true
+    spells:
+        - BuffBene
+        - bene_Aoe_0
+        - Bene_commande
+# Enlisement 1 #
+Enlisement_0:
+    spell-class: ".targeted.AreaEffectSpell"
+    cast-item: "351:4"
+    cooldown: 120
+    horizontal-radius: 5
+    vertical-radius: 5
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Enlisement_Slow_1
+        - Enlisement_commande
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: smoke
+            horiz-spread: 5
+            vert-spread: 5
+            y-offset: 0
+            speed: 0.1
+            count: 400
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: target
+        self:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: caster
+Enlisement_Slow_1:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 2
+    strength: 0
+    duration: 60
+    targeted: true
+    can-target: players,nonplayers
+    beneficial: false
+Enlisement_commande:
+    spell-class: ".ExternalCommandSpell"
+    execute-on-console-instead: true
+    command-to-execute:
+        - "nojump %t 3"
+# Enlisement 2 #
+Enlisement_1:
+    spell-class: ".targeted.AreaEffectSpell"
+    cast-item: "351:4"
+    cooldown: 120
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Enlisement_Slow_2
+        - Enlisement_commande
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: smoke
+            horiz-spread: 10
+            vert-spread: 10
+            y-offset: 0
+            speed: 0.1
+            count: 400
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: target
+        self:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: caster
+Enlisement_Slow_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 2
+    strength: 0
+    duration: 60
+    targeted: true
+    can-target: players,nonplayers
+    beneficial: false
+# Enlisement 3 #
+Enlisement_2:
+    spell-class: ".targeted.AreaEffectSpell"
+    cast-item: "351:4"
+    cooldown: 100
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Enlisement_Slow_3
+        - Enlisement_commande
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: smoke
+            horiz-spread: 10
+            vert-spread: 10
+            y-offset: 0
+            speed: 0.1
+            count: 400
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: target
+        self:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: caster
+Enlisement_Slow_3:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 2
+    strength: 0
+    duration: 60
+    targeted: true
+    can-target: players,nonplayers
+    beneficial: false
+# Enlisement 4 #
+Enlisement_3:
+    spell-class: ".targeted.AreaEffectSpell"
+    cast-item: "351:4"
+    cooldown: 100
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Enlisement_Slow_4
+        - Enlisement_commande
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: smoke
+            horiz-spread: 10
+            vert-spread: 10
+            y-offset: 0
+            speed: 0.1
+            count: 400
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: target
+        self:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: caster
+Enlisement_Slow_4:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 2
+    strength: 0
+    duration: 100
+    targeted: true
+    can-target: players,nonplayers
+    beneficial: false
+# Enlisement 5 #
+Enlisement_4:
+    spell-class: ".targeted.AreaEffectSpell"
+    right-click-cast-item: "feather"
+    cooldown: 80
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    can-target: players,nonplayers
+    fail-if-no-targets: false
+    spells:
+        - Enlisement_Slow_5
+        - Enlisement_commande
+    effects:
+        Part:
+            position: special
+            effect: particles
+            particle-name: smoke
+            horiz-spread: 10
+            vert-spread: 10
+            y-offset: 0
+            speed: 0.1
+            count: 400
+            render-distance: 64
+        sound:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: target
+        self:
+            effect: sound
+            sound: mob.zombie.remedy 
+            pitch: 2
+            volume: 2
+            position: caster
+Enlisement_Slow_5:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 2
+    strength: 0
+    duration: 100
+    targeted: true
+    can-target: players,nonplayers
+    beneficial: false
+# Fin Enlisement #
+# BO 0 #
+BattleOrderDorn_0:
+    spell-class: ".MultiSpell"
+    cast-item: "397:0"
+    cooldown: 145
+    point-blank: true
+    spells:
+        - BattleOrderDorn_Absorption_Self_0
+        - BattleOrderDorn_Aoe_0
+        - BattleOrderDorn_Dmg_0_self
+BattleOrderDorn_Aoe_0:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - BattleOrderDorn_Absorption_0
+        - BattleOrderDorn_Dmg_0
+    effects:
+        sound:
+            effect: sound
+            sound: mob.wolf.howl
+            pitch: 0
+            volume: 2
+            position: special
+BattleOrderDorn_Absorption_0:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 0
+    duration: 200
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Absorption_Self_0:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 0
+    duration: 200
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_0:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 30
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_0_self:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 30
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+# Fin BO 0 #
+# BO 1 #
+BattleOrderDorn_1:
+    spell-class: ".MultiSpell"
+    cast-item: "397:0"
+    cooldown: 120
+    point-blank: true
+    spells:
+        - BattleOrderDorn_Absorption_Self_1
+        - BattleOrderDorn_Aoe_1
+        - BattleOrderDorn_Dmg_1_self
+BattleOrderDorn_Aoe_1:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - BattleOrderDorn_Absorption_1
+        - BattleOrderDorn_Dmg_1
+    effects:
+        sound:
+            effect: sound
+            sound: mob.wolf.howl
+            pitch: 0
+            volume: 2
+            position: special
+BattleOrderDorn_Absorption_1:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 0
+    duration: 240
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Absorption_Self_1:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 0
+    duration: 240
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_1:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 20
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_1_self:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 20
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+# Fin BO 1 #
+# BO 2 #
+BattleOrderDorn_2:
+    spell-class: ".MultiSpell"
+    cast-item: "397:0"
+    cooldown: 100
+    point-blank: true
+    spells:
+        - BattleOrderDorn_Absorption_Self_2
+        - BattleOrderDorn_Aoe_2
+        - BattleOrderDorn_Dmg_2_self
+BattleOrderDorn_Aoe_2:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - BattleOrderDorn_Absorption_2
+        - BattleOrderDorn_Dmg_2_self
+    effects:
+        sound:
+            effect: sound
+            sound: mob.wolf.howl
+            pitch: 0
+            volume: 2
+            position: special
+BattleOrderDorn_Absorption_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 0
+    duration: 280
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Absorption_Self_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 0
+    duration: 280
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 10
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_2_self:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 10
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+# Fin BO 2 #
+# BO 3 #
+BattleOrderDorn_3:
+    spell-class: ".MultiSpell"
+    cast-item: "397:0"
+    cooldown: 80
+    point-blank: true
+    spells:
+        - BattleOrderDorn_Absorption_Self_3
+        - BattleOrderDorn_Aoe_3
+        - BattleOrderDorn_Dmg_3_self
+BattleOrderDorn_Aoe_3:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - BattleOrderDorn_Absorption_3
+        - BattleOrderDorn_Dmg_3
+    effects:
+        sound:
+            effect: sound
+            sound: mob.wolf.howl
+            pitch: 0
+            volume: 2
+            position: special
+BattleOrderDorn_Absorption_3:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 0
+    duration: 320
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Absorption_Self_3:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 0
+    duration: 320
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_3:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 0
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_3_self:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 0
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+# FIN BO 3 #
+# BO 4 #
+BattleOrderDorn_4:
+    spell-class: ".MultiSpell"
+    cast-item: "397:0"
+    cooldown: 60
+    point-blank: true
+    spells:
+        - BattleOrderDorn_Absorption_Self_4
+        - BattleOrderDorn_Aoe_4
+        - BattleOrderDorn_Dmg_4_self
+BattleOrderDorn_Aoe_4:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 10
+    vertical-radius: 10
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - BattleOrderDorn_Absorption_4
+        - BattleOrderDorn_Dmg_4
+    effects:
+        sound:
+            effect: sound
+            sound: mob.wolf.howl
+            pitch: 0
+            volume: 2
+            position: special
+BattleOrderDorn_Absorption_4:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 1
+    duration: 360
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Absorption_Self_4:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 1
+    duration: 360
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_4:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 30
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_4_self:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 30
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+# FIN BO 4 #
+# BO 5 #
+BattleOrderDorn_5:
+    spell-class: ".MultiSpell"
+    cast-item: "397:0"
+    cooldown: 60
+    point-blank: true
+    spells:
+        - BattleOrderDorn_Absorption_Self_5
+        - BattleOrderDorn_Aoe_5
+        - BattleOrderDorn_Dmg_5_self
+BattleOrderDorn_Aoe_5:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 32
+    vertical-radius: 32
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - BattleOrderDorn_Absorption_5
+        - BattleOrderDorn_Dmg_5
+    effects:
+        sound:
+            effect: sound
+            sound: mob.wolf.howl
+            pitch: 0
+            volume: 2
+            position: special
+BattleOrderDorn_Absorption_5:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 1
+    duration: 400
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Absorption_Self_5:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 22
+    strength: 1
+    duration: 400
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_5:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 20
+    targeted: true
+    can-target: players
+    beneficial: true
+    check-plugins: true
+BattleOrderDorn_Dmg_5_self:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 19
+    strength: 2
+    duration: 20
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+# FIN BO 5 #
+# Siphon 0 #
+Siphon_0:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 120
+    spells:
+        - Siphon_Cast_0
+        - DELAY 10
+        - Siphon_Toss_Self_0
+Siphon_Cast_0:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_0
+Siphon_Toss_0:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -3
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_0:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -3
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 0 #
+# Siphon 1 #
+Siphon_1:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 113
+    spells:
+        - Siphon_Cast_1
+        - DELAY 10
+        - Siphon_Toss_Self_1
+Siphon_Cast_1:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_1
+Siphon_Toss_1:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -6
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_1:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -6
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 1 #
+# Siphon 2 #
+Siphon_2:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 106
+    spells:
+        - Siphon_Cast_2
+        - DELAY 10
+        - Siphon_Toss_Self_2
+Siphon_Cast_2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_2
+Siphon_Toss_2:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -9
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_2:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -9
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 2 #
+# Siphon 3 #
+Siphon_3:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 99
+    spells:
+        - Siphon_Cast_3
+        - DELAY 10
+        - Siphon_Toss_Self_3
+Siphon_Cast_3:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_3
+Siphon_Toss_3:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -12
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_3:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -12
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 3 #
+# Siphon 4 #
+Siphon_4:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 92
+    spells:
+        - Siphon_Cast_4
+        - DELAY 10
+        - Siphon_Toss_Self_4
+Siphon_Cast_4:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_4
+Siphon_Toss_4:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -15
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_4:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -15
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 4 #
+# Siphon 5 #
+Siphon_5:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 85
+    spells:
+        - Siphon_Cast_5
+        - DELAY 10
+        - Siphon_Toss_Self_5
+Siphon_Cast_5:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_5
+Siphon_Toss_5:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -18
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_5:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -18
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 5 #
+# Siphon 6 #
+Siphon_6:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 78
+    spells:
+        - Siphon_Cast_6
+        - DELAY 10
+        - Siphon_Toss_Self_6
+Siphon_Cast_6:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_6
+Siphon_Toss_6:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -21
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_6:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -21
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 6 #
+# Siphon 7 #
+Siphon_7:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 71
+    spells:
+        - Siphon_Cast_7
+        - DELAY 10
+        - Siphon_Toss_Self_7
+Siphon_Cast_7:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_7
+Siphon_Toss_7:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -24
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_7:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -24
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 7 #
+# Siphon 8 #
+Siphon_8:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 64
+    spells:
+        - Siphon_Cast_8
+        - DELAY 10
+        - Siphon_Toss_Self_8
+Siphon_Cast_8:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_8
+Siphon_Toss_8:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -27
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_8:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -27
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 8 #
+# Siphon 9 #
+Siphon_9:
+    spell-class: ".MultiSpell"
+    cast-item: "409"
+    cooldown: 60
+    spells:
+        - Siphon_Cast_9
+        - DELAY 10
+        - Siphon_Toss_Self_9
+Siphon_Cast_9:
+    spell-class: ".instant.ParticleProjectileSpell"
+    projectile-velocity: 10
+    projectile-gravity: 0
+    max-distance: 5
+    tick-interval: 1
+    hit-non-players: false
+    hit-players: true
+    hit-radius: 2
+    max-distance: 5
+    particle-horizontal-spread: 0
+    particle-vertical-spread: 0
+    special-effect-interval: 1
+    particle-count: 1
+    particle-name: blockcrack
+    spell: Siphon_Toss_9
+Siphon_Toss_9:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -30
+    obey-los: false
+    target-players: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+Siphon_Toss_Self_9:
+    spell-class: ".targeted.ForcetossSpell"
+    range: 15
+    damage: 0
+    horizontal-force: 0
+    vertical-force: -30
+    obey-los: false
+    target-players: true
+    target-self: true
+    check-plugins: true
+    modifiers:
+        - inblock 8,9 required
+    effects:
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: HelixEffect
+                particle: REDSTONE
+                strands: 6
+                iterations: 1
+                radius: 3
+                particles: 40
+                curve: 10
+                visibleRange: 64
+                color: 00FFFF
+# FIN SIPHON 9 #
+# 267 Iron Sword
+# 276 Dia
+# 283 Gold
+# 258 Iron axe
+# 279 dia
+# 286 gold
+# 257 Iron Pick
+# 278 Dia
+# 285 Gold
+# 341 Slime
+# 318 Flint
+# Rugissement 0 #
+Rugissement_0:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "397:0"
+    cooldown: 180
+    projectile-velocity: 15
+    hug-surface: true
+    tick-interval: 1
+    special-effect-interval: 2
+    spell-interval: 2
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-during: true
+    hit-players: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    particle-name: blockcrack
+    particle-count: 5
+    max-duration: 130
+    max-distance: 32
+    render-distance: 64
+    spell: Rugissement_0_Aoe
+Rugissement_0_Aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 2
+    vertical-radius: 2
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - Rugissement_Buff_1
+    effects:
+        sound:
+            effect: sound
+            sound: mob.enderdragon.growl
+            pitch: 0
+            volume: 2
+            position: special
+Rugissement_Buff_1:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 0
+    duration: 140
+    targeted: true
+    can-target: players
+    beneficial: true
+# Fin Rugissement 1 #
+# Rugissement 2 #
+Rugissement_1:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "397:0"
+    cooldown: 165
+    projectile-velocity: 15
+    hug-surface: true
+    tick-interval: 1
+    special-effect-interval: 2
+    spell-interval: 2
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-during: true
+    hit-players: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    particle-name: blockcrack
+    particle-count: 0
+    max-duration: 130
+    max-distance: 32
+    render-distance: 64
+    spell: Rugissement_1_Aoe
+Rugissement_1_Aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 4
+    vertical-radius: 4
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - Rugissement_Buff_2
+    effects:
+        sound:
+            effect: sound
+            sound: mob.enderdragon.growl
+            pitch: 0
+            volume: 2
+            position: special
+Rugissement_Buff_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 0
+    duration: 160
+    targeted: true
+    can-target: players
+    beneficial: true
+# Fin Rugissement 2 #
+# Rugissement 3 #
+Rugissement_2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "397:0"
+    cooldown: 150
+    projectile-velocity: 15
+    hug-surface: true
+    tick-interval: 1
+    special-effect-interval: 2
+    spell-interval: 2
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-during: true
+    hit-players: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    particle-name: blockcrack
+    particle-count: 0
+    max-duration: 130
+    max-distance: 32
+    render-distance: 64
+    spell: Rugissement_2_Aoe
+Rugissement_2_Aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 32
+    vertical-radius: 32
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - Rugissement_Buff_3
+    effects:
+        sound:
+            effect: sound
+            sound: mob.enderdragon.growl
+            pitch: 0
+            volume: 2
+            position: special
+Rugissement_Buff_3:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 0
+    duration: 180
+    targeted: true
+    can-target: players
+    beneficial: true
+# Fin Rugissement 3 #
+# Rugissement 4 #
+Rugissement_3:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "397:0"
+    cooldown: 135
+    projectile-velocity: 15
+    hug-surface: true
+    tick-interval: 1
+    special-effect-interval: 2
+    spell-interval: 2
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-during: true
+    hit-players: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    particle-name: blockcrack
+    particle-count: 0
+    max-duration: 130
+    max-distance: 32
+    render-distance: 64
+    spell: Rugissement_3_Aoe
+Rugissement_3_Aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 7
+    vertical-radius: 7
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - Rugissement_Buff_4
+    effects:
+        sound:
+            effect: sound
+            sound: mob.enderdragon.growl
+            pitch: 0
+            volume: 2
+            position: special
+Rugissement_Buff_4:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 0
+    duration: 200
+    targeted: true
+    can-target: players
+    beneficial: true
+# Fin Rugissement 4 #
+# Rugissement 5 #
+Rugissement_4:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: "397:0"
+    cooldown: 120
+    projectile-velocity: 15
+    hug-surface: true
+    tick-interval: 1
+    special-effect-interval: 2
+    spell-interval: 2
+    stop-on-hit-entity: false
+    stop-on-hit-ground: false
+    hit-air-during: true
+    hit-players: true
+    particle-vertical-spread: 0
+    particle-horizontal-spread: 0
+    particle-name: blockcrack
+    particle-count: 0
+    max-duration: 130
+    max-distance: 32
+    render-distance: 64
+    spell: Rugissement_4_Aoe
+Rugissement_4_Aoe:
+    spell-class: ".targeted.AreaEffectSpell"
+    horizontal-radius: 9
+    vertical-radius: 9
+    point-blank: true
+    can-target: players
+    fail-if-no-targets: false
+    spells:
+        - Rugissement_Buff_5
+    effects:
+        sound:
+            effect: sound
+            sound: mob.enderdragon.growl
+            pitch: 0
+            volume: 2
+            position: special
+Rugissement_Buff_5:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 0
+    duration: 240
+    targeted: true
+    can-target: players
+    beneficial: true
+# Fin Rugissement 5 #
+# Adaptation 0 #
+Adaptation_0:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 180
+    spells:
+        - Adaptation_Resist_0
+        - Adaptation_Lessdmg_0
+        - Adaptation_Visuel
+Adaptation_Resist_0:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - block explosion
+        - contact
+        - custom
+        - drowning
+        - entity_attack
+        - entity_explosion
+        - fall
+        - fire
+        - fire tick
+        - lava
+        - lightning
+        - magic
+        - poison
+        - projectile
+        - starvation
+        - suffocation
+        - void
+        - wither
+    multiplier: 0.9
+    duration: 10
+Adaptation_Lessdmg_0:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 1
+    duration: 200
+    targeted: false
+Adaptation_Visuel:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 16
+    strength: 0
+    duration: 200
+    targeted: false
+    can-target: players
+    beneficial: true
+    check-plugins: true
+# Fin Adaptation 0 #
+# Adaptation 1 #
+Adaptation_1:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 120
+    spells:
+        - Adaptation_Resist_1
+        - Adaptation_Lessdmg_1
+        - Adaptation_Visuel
+Adaptation_Resist_1:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - BLOCK_EXPLOSION
+        - CONTACT
+        - CUSTOM
+        - DROWNING
+        - ENTITY_ATTACK
+        - ENTITY_EXPLOSION
+        - FALL
+        - FIRE
+        - FIRE_TICK
+        - LAVA
+        - LIGHTNING
+        - MAGIC
+        - ROJECTILE
+        - STARVATION
+        - SUFFOCATION
+        - VOID
+        - WITHER
+        - THORNS
+    multiplier: 0.9
+    duration: 10
+Adaptation_Lessdmg_1:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 1
+    duration: 200
+    targeted: false
+# Fin Adaptation 1 #
+# Adaptation 2 #
+Adaptation_2:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 115
+    spells:
+        - Adaptation_Resist_2
+        - Adaptation_Lessdmg_2
+        - Adaptation_Visuel
+Adaptation_Resist_2:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - BLOCK_EXPLOSION
+        - CONTACT
+        - CUSTOM
+        - DROWNING
+        - ENTITY_ATTACK
+        - ENTITY_EXPLOSION
+        - FALL
+        - FIRE
+        - FIRE_TICK
+        - LAVA
+        - LIGHTNING
+        - MAGIC
+        - ROJECTILE
+        - STARVATION
+        - SUFFOCATION
+        - VOID
+        - WITHER
+        - THORNS
+    multiplier: 0.85
+    duration: 10
+Adaptation_Lessdmg_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 1
+    duration: 200
+    targeted: false
+# Fin Adaptation 2 #
+# Adaptation 3 #
+Adaptation_3:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 110
+    spells:
+        - Adaptation_Resist_3
+        - Adaptation_Lessdmg_2
+        - Adaptation_Visuel
+Adaptation_Resist_3:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - BLOCK_EXPLOSION
+        - CONTACT
+        - CUSTOM
+        - DROWNING
+        - ENTITY_ATTACK
+        - ENTITY_EXPLOSION
+        - FALL
+        - FIRE
+        - FIRE_TICK
+        - LAVA
+        - LIGHTNING
+        - MAGIC
+        - ROJECTILE
+        - STARVATION
+        - SUFFOCATION
+        - VOID
+        - WITHER
+        - THORNS
+    multiplier: 0.85
+    duration: 10
+Adaptation_Lessdmg_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 0
+    duration: 200
+    targeted: false
+# Fin Adaptation 3 #
+# Adaptation 4 #
+Adaptation_4:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 105
+    spells:
+        - Adaptation_Resist_4
+        - Adaptation_Lessdmg_4
+        - Adaptation_Visuel
+Adaptation_Resist_4:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - BLOCK_EXPLOSION
+        - CONTACT
+        - CUSTOM
+        - DROWNING
+        - ENTITY_ATTACK
+        - ENTITY_EXPLOSION
+        - FALL
+        - FIRE
+        - FIRE_TICK
+        - LAVA
+        - LIGHTNING
+        - MAGIC
+        - ROJECTILE
+        - STARVATION
+        - SUFFOCATION
+        - VOID
+        - WITHER
+        - THORNS
+    multiplier: 0.85
+    duration: 10
+Adaptation_Lessdmg_4:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 0
+    duration: 200
+    targeted: false
+# Fin Adaptation 4 #
+# Adaptation 5 #
+Adaptation_5:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 100
+    spells:
+        - Adaptation_Resist_5
+        - Adaptation_Lessdmg_5
+        - Adaptation_Visuel
+Adaptation_Resist_5:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - BLOCK_EXPLOSION
+        - CONTACT
+        - CUSTOM
+        - DROWNING
+        - ENTITY_ATTACK
+        - ENTITY_EXPLOSION
+        - FALL
+        - FIRE
+        - FIRE_TICK
+        - LAVA
+        - LIGHTNING
+        - MAGIC
+        - ROJECTILE
+        - STARVATION
+        - SUFFOCATION
+        - VOID
+        - WITHER
+        - THORNS
+    multiplier: 0.8
+    duration: 10
+Adaptation_Lessdmg_5:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 0
+    duration: 200
+    targeted: false
+# Fin Adaptation 5 #
+# Adaptation 6 #
+Adaptation_6:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 90
+    spells:
+        - Adaptation_Resist_6
+        - Adaptation_Lessdmg_6
+        - Adaptation_Visuel
+Adaptation_Resist_6:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - BLOCK_EXPLOSION
+        - CONTACT
+        - CUSTOM
+        - DROWNING
+        - ENTITY_ATTACK
+        - ENTITY_EXPLOSION
+        - FALL
+        - FIRE
+        - FIRE_TICK
+        - LAVA
+        - LIGHTNING
+        - MAGIC
+        - ROJECTILE
+        - STARVATION
+        - SUFFOCATION
+        - VOID
+        - WITHER
+        - THORNS
+    multiplier: 0.8
+    duration: 15
+Adaptation_Lessdmg_6:
+    spell-class: ".targeted.PotionEffectSpell"
+    type: 18
+    strength: 0
+    duration: 300
+    targeted: false
+# Fin Adaptation 6 #
+# Adaptation 7 #
+Adaptation_7:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 80
+    spells:
+        - Adaptation_Resist_7
+        - Adaptation_Visuel
+Adaptation_Resist_7:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - BLOCK_EXPLOSION
+        - CONTACT
+        - CUSTOM
+        - DROWNING
+        - ENTITY_ATTACK
+        - ENTITY_EXPLOSION
+        - FALL
+        - FIRE
+        - FIRE_TICK
+        - LAVA
+        - LIGHTNING
+        - MAGIC
+        - ROJECTILE
+        - STARVATION
+        - SUFFOCATION
+        - VOID
+        - WITHER
+        - THORNS
+    multiplier: 0.8
+    duration: 15
+# Fin Adaptation 7 #
+# Adaptation 8 #
+Adaptation_8:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 70
+    spells:
+        - Adaptation_Resist_8
+        - Adaptation_Visuel
+Adaptation_Resist_8:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - BLOCK_EXPLOSION
+        - CONTACT
+        - CUSTOM
+        - DROWNING
+        - ENTITY_ATTACK
+        - ENTITY_EXPLOSION
+        - FALL
+        - FIRE
+        - FIRE_TICK
+        - LAVA
+        - LIGHTNING
+        - MAGIC
+        - ROJECTILE
+        - STARVATION
+        - SUFFOCATION
+        - VOID
+        - WITHER
+        - THORNS
+    multiplier: 0.75
+    duration: 15
+# Fin Adaptation 8 #
+# Adaptation 9 #
+Adaptation_9:
+    spell-class: ".MultiSpell"
+    cast-item: "369"
+    cooldown: 60
+    spells:
+        - Adaptation_Resist_9
+        - Adaptation_Visuel
+Adaptation_Resist_9:
+    spell-class: ".buff.ResistSpell"
+    spell-damage-types:
+        - arcane
+    normal-damage-types:
+        - BLOCK_EXPLOSION
+        - CONTACT
+        - CUSTOM
+        - DROWNING
+        - ENTITY_ATTACK
+        - ENTITY_EXPLOSION
+        - FALL
+        - FIRE
+        - FIRE_TICK
+        - LAVA
+        - LIGHTNING
+        - MAGIC
+        - ROJECTILE
+        - STARVATION
+        - SUFFOCATION
+        - VOID
+        - WITHER
+        - THORNS
+    multiplier: 0.75
+    duration: 20
+# Fin Adaptation 9 #
+# Bulle 1 #
+Bulle_0:
+    spell-class: ".MultiSpell"
+    cast-item: "410"
+    cooldown: 300
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    spells:
+        - Bulle_Invul_1
+        - Bulle_Stun_1
+Bulle_Invul_1:
+    spell-class: ".buff.InvulnerabilitySpell"
+    damage-causes:
+        - block explosion
+        - contact
+        - custom
+        - drowning
+        - entity attack
+        - entity explosion
+        - fall
+        - fire
+        - fire tick
+        - lava
+        - lightning
+        - magic
+        - poison
+        - projectile
+        - starvation
+        - suffocation
+        - void
+        - wither
+    duration: 4
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    effects:
+        Effect_1:
+            position: buff
+            height-offset: 1
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                iterations: 1
+                radius: 1
+                particles: 100
+                period: 1
+                visibleRange: 32
+                color: 0099ff
+Bulle_Stun_1:
+    spell-class: ".targeted.StunSpell"
+    target-self: true
+    duration: 4
+    variable-mods-cast:
+          - meta_location_pitch =100
+# Fin Bulle 1 #
+# Bulle 2 #
+Bulle_1:
+    spell-class: ".MultiSpell"
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    cast-item: "410"
+    cooldown: 260
+    spells:
+        - Bulle_Invul_1
+        - Bulle_Stun_1
+# Fin Bulle 2 #
+# Bulle 3 #
+Bulle_2:
+    spell-class: ".MultiSpell"
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    cast-item: "410"
+    cooldown: 240
+    spells:
+        - Bulle_Invul_1
+        - Bulle_Stun_1
+# Fin Bulle 3 #
+# Bulle 4 #
+Bulle_3:
+    spell-class: ".MultiSpell"
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    cast-item: "410"
+    cooldown: 220
+    spells:
+        - Bulle_Invul_1
+        - Bulle_Stun_1
+# Fin Bulle 4 #
+# Bulle 5 #
+Bulle_4:
+    spell-class: ".MultiSpell"
+    modifiers:
+        - onblock air,175:2,175:5,31:1,38,37,33:3 denied
+    cast-item: "410"
+    cooldown: 160
+    spells:
+        - Bulle_Invul_1
+        - Bulle_Stun_1
+# Fin Bulle 5 #
+#SPAWN GRASS#
+grass:
+    spell-class: ".MultiSpell"
+    check-individual-cooldowns: false
+    spells:
+        - grass1
+        - grass2
+        - grass3
+        - grass4
+        - grass5
+        - grass6
+        - grass7
+        - grass8
+grass_block:
+    spell-class: .instant.ThrowBlockSpell
+    block-type: tallgrass:1
+    velocity: 0
+    remove-blocks: true
+    prevent-blocks: false
+    ensure-spell-cast: false
+    fall-damage: 0
+    fall-damage-max: 0
+grass1:
+    spell-class: .instant.ParticleProjectileSpell
+    hug-surface: false
+    projectile-horiz-offset: 0
+    projectile-gravity: 0
+    height-from-surface: 0.5
+    special-effect-interval: 1
+    spell-interval: 2
+    hit-air-during: true
+    particle-name: mobSpellAmbient
+    particle-count: 20
+    spell: grass_block
+grass2:
+    spell-class: .instant.ParticleProjectileSpell
+    hug-surface: false
+    projectile-horiz-offset: 45
+    projectile-gravity: 0
+    height-from-surface: 0.5
+    special-effect-interval: 1
+    spell-interval: 2
+    hit-air-during: true
+    particle-name: mobSpellAmbient
+    particle-count: 20
+    spell: grass_block
+grass3:
+    spell-class: .instant.ParticleProjectileSpell
+    hug-surface: false
+    projectile-horiz-offset: -45
+    projectile-gravity: 0
+    height-from-surface: 0.5
+    special-effect-interval: 1
+    spell-interval: 2
+    hit-air-during: true
+    particle-name: mobSpellAmbient
+    particle-count: 20
+    spell: grass_block
+grass4:
+    spell-class: .instant.ParticleProjectileSpell
+    hug-surface: false
+    projectile-horiz-offset: 90
+    projectile-gravity: 0
+    height-from-surface: 0.5
+    special-effect-interval: 1
+    spell-interval: 2
+    hit-air-during: true
+    particle-name: mobSpellAmbient
+    particle-count: 20
+    spell: grass_block
+grass5:
+    spell-class: .instant.ParticleProjectileSpell
+    hug-surface: false
+    projectile-horiz-offset: -90
+    projectile-gravity: 0
+    height-from-surface: 0.5
+    special-effect-interval: 1
+    spell-interval: 2
+    hit-air-during: true
+    particle-name: mobSpellAmbient
+    particle-count: 20
+    spell: grass_block
+grass6:
+    spell-class: .instant.ParticleProjectileSpell
+    hug-surface: false
+    projectile-horiz-offset: 135
+    projectile-gravity: 0
+    height-from-surface: 0.5
+    special-effect-interval: 1
+    spell-interval: 2
+    hit-air-during: true
+    particle-name: mobSpellAmbient
+    particle-count: 20
+    spell: grass_block
+grass7:
+    spell-class: .instant.ParticleProjectileSpell
+    hug-surface: false
+    projectile-horiz-offset: -135
+    projectile-gravity: 0
+    height-from-surface: 0.5
+    special-effect-interval: 1
+    spell-interval: 2
+    hit-air-during: true
+    particle-name: mobSpellAmbient
+    particle-count: 20
+    spell: grass_block
+grass8:
+    spell-class: .instant.ParticleProjectileSpell
+    hug-surface: false
+    projectile-horiz-offset: 180
+    projectile-gravity: 0
+    height-from-surface: 0.5
+    special-effect-interval: 1
+    spell-interval: 2
+    hit-air-during: true
+    particle-name: mobSpellAmbient
+    particle-count: 20
+    spell: grass_block
+#SPAWN GRASS FIN#
+# KisSylv 1 #
+KissSylv_0:
+    spell-class: ".MultiSpell"
+    cooldown: 120
+    cast-item: "175:4"
+    check-individual-cooldowns: false
+    spells:
+        - grass
+        - KissSylv_buff_0
+KissSylv_buff_0:
+    spell-class: ".buff.DummySpell"
+    duration: 12
+    spells:
+        - KissSylv_Speed_1
+KissSylv_TRIGGER_0:
+    spell-class: ".PassiveSpell"
+    triggers: 
+        - ticks 5
+    modifiers:
+        - buffactive KissSylv_buff_0 required
+    spells:
+        - KissSylv_Speed_0
+KissSylv_Speed_0:
+    spell-class: ".targeted.PotionEffectSpell"
+    modifiers:
+        - inblock 175:2,175:5,31:1,38,37,33:3 required
+    type: 1
+    strength: 0
+    duration: 30
+    targeted: false
+# Fin KisSylv 1 #
+# KisSylv 2 #
+KissSylv_1:
+    spell-class: ".MultiSpell"
+    cooldown: 120
+    cast-item: "175:4"
+    check-individual-cooldowns: false
+    spells:
+        - grass
+        - KissSylv_buff_1
+KissSylv_buff_1:
+    spell-class: ".buff.DummySpell"
+    duration: 15
+    spells:
+        - KissSylv_Speed_1
+KissSylv_TRIGGER_1:
+    spell-class: ".PassiveSpell"
+    triggers: 
+        - ticks 5
+    modifiers:
+        - buffactive KissSylv_buff_1 required
+    spells:
+        - KissSylv_Speed_1
+KissSylv_Speed_1:
+    spell-class: ".targeted.PotionEffectSpell"
+    modifiers:
+        - inblock 175:2,175:5,31:1,38,37,33:3 required
+    type: 1
+    strength: 0
+    duration: 50
+    targeted: false
+# Fin KisSylv 2 #
+# KisSylv 3 #
+KissSylv_2:
+    spell-class: ".MultiSpell"
+    cooldown: 120
+    cast-item: "175:4"
+    check-individual-cooldowns: false
+    spells:
+        - grass
+        - KissSylv_buff_2
+KissSylv_buff_2:
+    spell-class: ".buff.DummySpell"
+    duration: 18
+    spells:
+        - KissSylv_Speed_2
+KissSylv_TRIGGER_2:
+    spell-class: ".PassiveSpell"
+    triggers: 
+        - ticks 5
+    modifiers:
+        - buffactive KissSylv_buff_2 required
+    spells:
+        - KissSylv_Speed_2
+KissSylv_Speed_2:
+    spell-class: ".targeted.PotionEffectSpell"
+    modifiers:
+        - inblock 175:2,175:5,31:1,38,37,33:3 required
+    type: 1
+    strength: 0
+    duration: 70
+    targeted: false
+# Fin KisSylv 3 #
+# KisSylv 4 #
+KissSylv_3:
+    spell-class: ".MultiSpell"
+    cooldown: 120
+    cast-item: "175:4"
+    check-individual-cooldowns: false
+    spells:
+        - grass
+        - KissSylv_buff_3
+KissSylv_buff_3:
+    spell-class: ".buff.DummySpell"
+    duration: 21
+    spells:
+        - KissSylv_Speed_3
+KissSylv_TRIGGER_3:
+    spell-class: ".PassiveSpell"
+    triggers: 
+        - ticks 5
+    modifiers:
+        - buffactive KissSylv_buff_3 required
+    spells:
+        - KissSylv_Speed_3
+KissSylv_Speed_3:
+    spell-class: ".targeted.PotionEffectSpell"
+    modifiers:
+        - inblock 175:2,175:5,31:1,38,37,33:3 required
+    type: 1
+    strength: 0
+    duration: 85
+    targeted: false
+# Fin KisSylv 4 #
+# KisSylv 5 #
+KissSylv_4:
+    spell-class: ".MultiSpell"
+    cooldown: 120
+    cast-item: "175:4"
+    check-individual-cooldowns: false
+    spells:
+        - grass
+        - KissSylv_buff_4
+KissSylv_buff_4:
+    spell-class: ".buff.DummySpell"
+    duration: 24
+    spells:
+        - KissSylv_Speed_4
+KissSylv_TRIGGER_4:
+    spell-class: ".PassiveSpell"
+    triggers: 
+        - ticks 5
+    modifiers:
+        - buffactive KissSylv_buff_4 required
+    spells:
+        - KissSylv_Speed_4
+KissSylv_Speed_4:
+    spell-class: ".targeted.PotionEffectSpell"
+    modifiers:
+        - inblock 175:2,175:5,31:1,38,37,33:3 required
+    type: 1
+    strength: 0
+    duration: 100
+    targeted: false
+# Fin KisSylv 5 #
