@@ -1,7 +1,7 @@
 ########################
 # Racial Spell         #
-# Last Edit 02/09/17   #
-# Nouveau Systeme      #
+# Last Edit 05/06/18   #
+# Maglu                #
 ########################
 Dummy_Target_Nothing:
     spell-class: ".targeted.DummySpell"
@@ -287,7 +287,17 @@ sylvanus:
     can-target: players,wolf,cat
     obey-los: true
     range: 10
-maglubiyet:
+maglubiyet_Gob:
+    spell-class: ".PassiveSpell"
+    cooldown: 120
+    cancel-default-action: true
+    triggers: 
+        - takedamage
+    modifiers:
+        - healthbelow 5 required
+    spells:
+        - maglubiyet_Kold
+maglubiyet_Kob:
     spell-class: ".MultiSpell"
     cast-item: blaze_rod
     cooldown: 300
@@ -295,12 +305,12 @@ maglubiyet:
     cost:
         - hunger 10
         - health 10
-    str-cost: 5 coeurs et 5 de faim.
     str-cast-self: Vous Incarnez La Fureur
     str-cast-others: "%a Incarne La Fureur"
     spells:
         - maglubiyet_Invuln
         - maglubiyet_Strength
+        - maglubiyet_commande
     effects:
         sound:
             effect: sound
@@ -312,6 +322,11 @@ maglubiyet_Strength:
     type: 5
     strength: 0
     duration: 120
+maglubiyet_commande:
+    spell-class: ".ExternalCommandSpell"
+    execute-on-console-instead: true
+    command-to-execute:
+        - "nodgts %a"
 maglubiyet_Invuln:
     spell-class: ".buff.InvulnerabilitySpell"
     damage-causes:
