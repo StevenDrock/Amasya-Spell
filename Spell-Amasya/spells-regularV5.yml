@@ -296,7 +296,7 @@ maglubiyet_Gob:
     modifiers:
         - healthbelow 5 required
     spells:
-        - maglubiyet_Kold
+        - maglubiyet_Kob
 maglubiyet_Kob:
     spell-class: ".MultiSpell"
     cast-item: blaze_rod
