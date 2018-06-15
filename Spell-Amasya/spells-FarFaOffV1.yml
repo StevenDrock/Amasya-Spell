@@ -62,8 +62,8 @@ testfeu_feu:
     can-target: players,nonplayers
     check-plugins: true
     modifiers:
-        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU addpower 3
-        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES power 0.75
+        - biome DESERT,DESERT_HILLS,HELL,MESA,MESA_CLEAR_ROCK,MESA_ROCK,MUTATED_DESERT,MUTATED_MESA,MUTATED_MESA_CLEAR_ROCK,MUTATED_MESA_ROCK,MUTATED_SAVANNA,MUTATED_SAVANNA_ROCK addpower 3
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_FLATS,ICE_MOUNTAINS,COLD_BEACH,MUTATED_ICE_FLATS,MUTATED_TAIGA_COLD,TAIGA_COLD,TAIGA_COLD_HILLS,RIVER,OCEAN power 0.75
         - inblock 8,9 power 0.75
         - onfire addpower 3
         - storm power 0.85
@@ -253,8 +253,8 @@ testfeu2_DMG_SPHERES:
     can-target: players,nonplayers
     check-plugins: true
     modifiers:
-        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU addpower 3
-        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES power 0.90
+        - biome DESERT,DESERT_HILLS,HELL,MESA,MESA_CLEAR_ROCK,MESA_ROCK,MUTATED_DESERT,MUTATED_MESA,MUTATED_MESA_CLEAR_ROCK,MUTATED_MESA_ROCK,MUTATED_SAVANNA,MUTATED_SAVANNA_ROCK addpower 3
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_FLATS,ICE_MOUNTAINS,COLD_BEACH,MUTATED_ICE_FLATS,MUTATED_TAIGA_COLD,TAIGA_COLD,TAIGA_COLD_HILLS,RIVER,OCEAN power 0.90
         - inblock 8,9 power 0.90
         - onfire addpower 3
         - storm power 0.90
@@ -266,7 +266,6 @@ testlight:
     projectile-velocity: 20
     projectile-gravity: 0
     tick-interval: 1
-    special-effect-interval: 20
     hit-non-players: false
     hit-players: true
     hit-radius: 0.5
@@ -313,7 +312,7 @@ pain_light:
     modifiers:
         - outside addpower 1
         - elevationabove 140 addpower 3
-        - biome OCEAN,RIVER addpower 1
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_FLATS,ICE_MOUNTAINS,COLD_BEACH,MUTATED_ICE_FLATS,MUTATED_TAIGA_COLD,TAIGA_COLD,TAIGA_COLD_HILLS,RIVER,OCEAN addpower 1
         - inblock 8,9 addpower 3
         - roof 5 power 0
     ignore-armor: false
@@ -361,7 +360,7 @@ pain_light2:
     modifiers:
         - outside addpower 1
         - elevationabove 140 addpower 6
-        - biome OCEAN,RIVER addpower 1
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_FLATS,ICE_MOUNTAINS,COLD_BEACH,MUTATED_ICE_FLATS,MUTATED_TAIGA_COLD,TAIGA_COLD,TAIGA_COLD_HILLS,RIVER,OCEAN addpower 1
         - inblock 8,9 addpower 6
         - roof 5 power 0.5
     ignore-armor: false
@@ -479,9 +478,9 @@ testwater_dmg:
             speed: 0.2
             height-offset: 1
     modifiers:
-        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU power 0.75
-        - biome JUNGLE,SWAMPLAND addpower 2
-        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES addpower 1
+        - biome DESERT,DESERT_HILLS,HELL,MESA,MESA_CLEAR_ROCK,MESA_ROCK,MUTATED_DESERT,MUTATED_MESA,MUTATED_MESA_CLEAR_ROCK,MUTATED_MESA_ROCK,MUTATED_SAVANNA,MUTATED_SAVANNA_ROCK power 0.75
+        - biome SWAMPLAND,TAIGA addpower 2
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_FLATS,ICE_MOUNTAINS,COLD_BEACH,MUTATED_ICE_FLATS,MUTATED_TAIGA_COLD,TAIGA_COLD,TAIGA_COLD_HILLS,RIVER,OCEAN addpower 1
         - inblock 8,9 addpower 1
         - onfire power 0.75
 testwater_freeze:
@@ -494,7 +493,7 @@ testwater_freeze:
     target-non-players: true
     obey-los: true
     modifiers:
-        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES required
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_FLATS,ICE_MOUNTAINS,COLD_BEACH,MUTATED_ICE_FLATS,MUTATED_TAIGA_COLD,TAIGA_COLD,TAIGA_COLD_HILLS,RIVER,OCEAN required
 ############################## water 2
 testwater2:
      spell-class: ".MultiSpell"
@@ -691,9 +690,9 @@ testwater2_dmg:
             speed: 0.2
             height-offset: 1
     modifiers:
-        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU power 0.75
-        - biome JUNGLE,SWAMPLAND addpower 1
-        - biome OCEAN,RIVER,FROZEN_OCEAN,FROZEN_RIVER,ICE_PLAINS,ICE_MOUNTAINS,ICE_PLAINS_SPIKES addpower 1
+        - biome DESERT,DESERT_HILLS,HELL,MESA,MESA_CLEAR_ROCK,MESA_ROCK,MUTATED_DESERT,MUTATED_MESA,MUTATED_MESA_CLEAR_ROCK,MUTATED_MESA_ROCK,MUTATED_SAVANNA,MUTATED_SAVANNA_ROCK power 0.75
+        - biome SWAMPLAND,TAIGA addpower 1
+        - biome FROZEN_OCEAN,FROZEN_RIVER,ICE_FLATS,ICE_MOUNTAINS,COLD_BEACH,MUTATED_ICE_FLATS,MUTATED_TAIGA_COLD,TAIGA_COLD,TAIGA_COLD_HILLS,RIVER,OCEAN addpower 1
         - inblock 8,9 addpower 1
         - onfire power 0.75
         - day addpower 1
@@ -708,7 +707,7 @@ testwater2_freeze:
     target-non-players: true
     obey-los: true
     modifiers:
-        - biome DESERT,HELL,SAVANNA,SAVANNA_PLATEAU,MESA,MESA_PLATEAU_FOREST,MESA_PLATEAU denied
+        - biome DESERT,DESERT_HILLS,HELL,MESA,MESA_CLEAR_ROCK,MESA_ROCK,MUTATED_DESERT,MUTATED_MESA,MUTATED_MESA_CLEAR_ROCK,MUTATED_MESA_ROCK,MUTATED_SAVANNA,MUTATED_SAVANNA_ROCK denied
 testwater2_blind:
     spell-class: ".targeted.PotionEffectSpell"
     type: 15

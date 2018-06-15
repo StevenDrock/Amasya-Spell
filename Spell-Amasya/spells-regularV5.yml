@@ -314,7 +314,7 @@ maglubiyet_Kob:
     effects:
         sound:
             effect: sound
-            sound: mob.endermen.scream
+            sound: entity.endermen.scream
             pitch: 0
             position: caster
 maglubiyet_Strength:

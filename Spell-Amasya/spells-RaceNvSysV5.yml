@@ -81,7 +81,7 @@ BouleFeu_Aoe1_0:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -108,7 +108,7 @@ BouleFeu_Aoe2_0:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -145,7 +145,7 @@ BouleFeu_Aoe3_0:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -172,7 +172,7 @@ BouleFeu_Aoe4_0:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -199,7 +199,7 @@ BouleFeu_Aoe_0:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -298,7 +298,7 @@ BouleFeu_Aoe1_1:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -325,7 +325,7 @@ BouleFeu_Aoe2_1:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -352,7 +352,7 @@ BouleFeu_Aoe3_1:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -379,7 +379,7 @@ BouleFeu_Aoe4_1:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -406,7 +406,7 @@ BouleFeu_Aoe_1:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -519,7 +519,7 @@ BouleFeu_Aoe1_2:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -546,7 +546,7 @@ BouleFeu_Aoe2_2:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -573,7 +573,7 @@ BouleFeu_Aoe3_2:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -600,7 +600,7 @@ BouleFeu_Aoe4_2:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -627,7 +627,7 @@ BouleFeu_Aoe_2:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -744,7 +744,7 @@ BouleFeu_Aoe1_3:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -771,7 +771,7 @@ BouleFeu_Aoe2_3:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -798,7 +798,7 @@ BouleFeu_Aoe3_3:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -825,7 +825,7 @@ BouleFeu_Aoe4_3:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -862,7 +862,7 @@ BouleFeu_Aoe_3:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -973,7 +973,7 @@ BouleFeu_Aoe1_4:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -1000,7 +1000,7 @@ BouleFeu_Aoe2_4:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -1027,7 +1027,7 @@ BouleFeu_Aoe3_4:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -1054,7 +1054,7 @@ BouleFeu_Aoe4_4:
     effects:
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -1091,7 +1091,7 @@ BouleFeu_Aoe_4:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 2
             volume: 2
             position: special
@@ -1154,7 +1154,7 @@ Deflagration_ex1:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 1
             volume: 2
             position: special
@@ -1226,7 +1226,7 @@ Deflagration_ex2:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 1
             volume: 2
             position: special
@@ -1297,7 +1297,7 @@ Deflagration_ex3:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 1
             volume: 2
             position: special
@@ -1368,7 +1368,7 @@ Deflagration_ex4:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 1
             volume: 2
             position: special
@@ -1439,7 +1439,7 @@ Deflagration_ex5:
             render-distance: 64
         sound:
             effect: sound
-            sound: random.fizz
+            sound: entity.generic.extinguish_fire
             pitch: 1
             volume: 2
             position: special
@@ -1559,8 +1559,6 @@ LinceuilMag_Multi_0:
     spell-class: ".MultiSpell"
     cast-item: "378"
     cooldown: 300
-    variable-mods-cast:
-        - meta_velocity_y =100
     modifiers:
         - onblock air,175:2,175:5,31:1,38,37,33:3 denied
     spells:
@@ -1583,7 +1581,7 @@ LinceuilMag_Heal_0:
         sound:
             position: caster
             effect: sound
-            sound: fireworks.blast
+            sound: entity.firework.blast
             pitch: 0
             volume: 2
 LinceuilMag_Feu_0:
@@ -1644,7 +1642,7 @@ LinceuilMag_Heal_1:
         sound:
             position: caster
             effect: sound
-            sound: fireworks.blast
+            sound: entity.firework.blast
             pitch: 0
             volume: 2
 LinceuilMag_Feu_1:
@@ -1705,7 +1703,7 @@ LinceuilMag_Heal_2:
         sound:
             position: caster
             effect: sound
-            sound: fireworks.blast
+            sound: entity.firework.blast
             pitch: 0
             volume: 2
 LinceuilMag_Feu_2:
@@ -1764,7 +1762,7 @@ LinceuilMag_Heal_3:
         sound:
             position: caster
             effect: sound
-            sound: fireworks.blast
+            sound: entity.firework.blast
             pitch: 0
             volume: 2
 LinceuilMag_Feu_3:
@@ -1823,7 +1821,7 @@ LinceuilMag_Heal_4:
         sound:
             position: caster
             effect: sound
-            sound: fireworks.blast
+            sound: entity.firework.blast
             pitch: 0
             volume: 2
 LinceuilMag_Feu_4:
@@ -2299,7 +2297,7 @@ bene_Aoe_0:
     effects:
         sound:
             effect: sound
-            sound: mob.guardian.curse
+            sound: entity.elder_guardian.curse
             pitch: 1
             volume: 2
             position: special 
@@ -2403,13 +2401,13 @@ Enlisement_0:
             render-distance: 64
         sound:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: target
         self:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: caster
@@ -2452,13 +2450,13 @@ Enlisement_1:
             render-distance: 64
         sound:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: target
         self:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: caster
@@ -2496,13 +2494,13 @@ Enlisement_2:
             render-distance: 64
         sound:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: target
         self:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: caster
@@ -2540,13 +2538,13 @@ Enlisement_3:
             render-distance: 64
         sound:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: target
         self:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: caster
@@ -2584,13 +2582,13 @@ Enlisement_4:
             render-distance: 64
         sound:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: target
         self:
             effect: sound
-            sound: mob.zombie.remedy 
+            sound: entity.zombie.cure 
             pitch: 2
             volume: 2
             position: caster
@@ -2626,7 +2624,7 @@ BattleOrderDorn_Aoe_0:
     effects:
         sound:
             effect: sound
-            sound: mob.wolf.howl
+            sound: entity.wolf.howl
             pitch: 0
             volume: 2
             position: special
@@ -2690,7 +2688,7 @@ BattleOrderDorn_Aoe_1:
     effects:
         sound:
             effect: sound
-            sound: mob.wolf.howl
+            sound: entity.wolf.howl
             pitch: 0
             volume: 2
             position: special
@@ -2754,7 +2752,7 @@ BattleOrderDorn_Aoe_2:
     effects:
         sound:
             effect: sound
-            sound: mob.wolf.howl
+            sound: entity.wolf.howl
             pitch: 0
             volume: 2
             position: special
@@ -2818,7 +2816,7 @@ BattleOrderDorn_Aoe_3:
     effects:
         sound:
             effect: sound
-            sound: mob.wolf.howl
+            sound: entity.wolf.howl
             pitch: 0
             volume: 2
             position: special
@@ -2882,7 +2880,7 @@ BattleOrderDorn_Aoe_4:
     effects:
         sound:
             effect: sound
-            sound: mob.wolf.howl
+            sound: entity.wolf.howl
             pitch: 0
             volume: 2
             position: special
@@ -2946,7 +2944,7 @@ BattleOrderDorn_Aoe_5:
     effects:
         sound:
             effect: sound
-            sound: mob.wolf.howl
+            sound: entity.wolf.howl
             pitch: 0
             volume: 2
             position: special
@@ -3662,7 +3660,7 @@ Rugissement_0_Aoe:
     effects:
         sound:
             effect: sound
-            sound: mob.enderdragon.growl
+            sound: entity.enderdragon.growl
             pitch: 0
             volume: 2
             position: special
@@ -3709,7 +3707,7 @@ Rugissement_1_Aoe:
     effects:
         sound:
             effect: sound
-            sound: mob.enderdragon.growl
+            sound: entity.enderdragon.growl
             pitch: 0
             volume: 2
             position: special
@@ -3756,7 +3754,7 @@ Rugissement_2_Aoe:
     effects:
         sound:
             effect: sound
-            sound: mob.enderdragon.growl
+            sound: entity.enderdragon.growl
             pitch: 0
             volume: 2
             position: special
@@ -3803,7 +3801,7 @@ Rugissement_3_Aoe:
     effects:
         sound:
             effect: sound
-            sound: mob.enderdragon.growl
+            sound: entity.enderdragon.growl
             pitch: 0
             volume: 2
             position: special
@@ -3850,7 +3848,7 @@ Rugissement_4_Aoe:
     effects:
         sound:
             effect: sound
-            sound: mob.enderdragon.growl
+            sound: entity.enderdragon.growl
             pitch: 0
             volume: 2
             position: special
@@ -4269,6 +4267,7 @@ Bulle_0:
     modifiers:
         - onblock air,175:2,175:5,31:1,38,37,33:3 denied
     spells:
+        - linceuiltp
         - Bulle_Invul_1
         - Bulle_Stun_1
 Bulle_Invul_1:
@@ -4324,6 +4323,7 @@ Bulle_1:
     cast-item: "410"
     cooldown: 260
     spells:
+        - linceuiltp
         - Bulle_Invul_1
         - Bulle_Stun_1
 # Fin Bulle 2 #
@@ -4335,6 +4335,7 @@ Bulle_2:
     cast-item: "410"
     cooldown: 240
     spells:
+        - linceuiltp
         - Bulle_Invul_1
         - Bulle_Stun_1
 # Fin Bulle 3 #
@@ -4346,6 +4347,7 @@ Bulle_3:
     cast-item: "410"
     cooldown: 220
     spells:
+        - linceuiltp
         - Bulle_Invul_1
         - Bulle_Stun_1
 # Fin Bulle 4 #
@@ -4357,6 +4359,7 @@ Bulle_4:
     cast-item: "410"
     cooldown: 160
     spells:
+        - linceuiltp
         - Bulle_Invul_1
         - Bulle_Stun_1
 # Fin Bulle 5 #
